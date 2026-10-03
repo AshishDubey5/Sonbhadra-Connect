@@ -1,0 +1,39 @@
+/* ==========================================================================
+   SCROLL REVEALS & MOTION
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal--fade {
+  transform: none;
+}
+
+.reveal--scale {
+  transform: scale(0.94);
+}
+
+.reveal--left {
+  transform: translateX(-30px);
+}
+
+.reveal--right {
+  transform: translateX(30px);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 100ms; }
+.delay-2 { transition-delay: 200ms; }
+.delay-3 { transition-delay: 300ms; }
+.delay-4 { transition-delay: 400ms; }
+.delay-5 { transition-delay: 500ms; }

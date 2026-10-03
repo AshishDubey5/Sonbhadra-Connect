@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:4242/api/v1/creators/update-avatar
+method: PATCH
+body:
+  type: formdata
+  content:
+    - type: file
+      key: avatar
+      src:
+        - /C:/Users/Ashish/Pictures/Screenshots/Screenshot 2026-09-17 023439.png
+      description: ""
+      disabled: false
+order: 4378861023783530

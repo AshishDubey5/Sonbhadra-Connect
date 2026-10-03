@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- SEO — all meta tags are updated dynamically by story-detail.js -->
+    <title>Story — SonbhadraConnect</title>
+    <meta name="description" content="An in-depth editorial story from SonbhadraConnect." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sonbhadraconnect.com/stories/" id="canonicalTag" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="article" id="ogType" />
+    <meta property="og:url"         content="https://sonbhadraconnect.com/stories/" id="ogUrl" />
+    <meta property="og:title"       content="Story — SonbhadraConnect" id="ogTitle" />
+    <meta property="og:description" content="An in-depth editorial story from SonbhadraConnect." id="ogDesc" />
+    <meta property="og:image"       content="https://sonbhadraconnect.com/public/assets/images/destinations/rihand-dam.webp" id="ogImage" />
+    <meta property="og:site_name"   content="SonbhadraConnect" />
+    <meta property="og:locale"      content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Story — SonbhadraConnect" id="twTitle" />
+    <meta name="twitter:description" content="An in-depth editorial story from SonbhadraConnect." id="twDesc" />
+    <meta name="twitter:image"       content="https://sonbhadraconnect.com/public/assets/images/destinations/rihand-dam.webp" id="twImage" />
+
+    <!-- Structured Data placeholder — story-detail.js injects the full JSON-LD -->
+    <script type="application/ld+json" id="storyJsonLd">{}</script>
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <link rel="stylesheet" href="../../styles/sections/_stories.css" />
+  </head>
+
+  <body class="story-detail-page" data-story-slug="">
+    <!-- Skip link -->
+    <a href="#storyMain" class="skip-link">Skip to story content</a>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         NAVIGATION
+         ═══════════════════════════════════════════════════════════════════ -->
+    <header class="site-header" id="siteHeader" role="banner">
+      <div class="nav-container">
+        <a href="../index.html" class="brand" aria-label="SonbhadraConnect Homepage">
+          <span class="brand__title">SONBHADRA</span>
+          <span class="brand__tagline">CONNECT</span>
+        </a>
+
+        <nav class="nav-menu" aria-label="Main Navigation">
+          <a href="../destinations/" class="nav-link">Destinations</a>
+          <a href="../index.html#creators" class="nav-link">Creators</a>
+          <a href="../index.html#experiences" class="nav-link">Experiences</a>
+          <a href="../index.html#why-locals" class="nav-link">Why Locals</a>
+          <a href="./index.html" class="nav-link is-active">Stories</a>
+          <a href="../index.html#map-preview" class="nav-link">Explore Map</a>
+        </nav>
+
+        <div class="nav-actions">
+          <!-- Tourist Option with Dropdown -->
+          <div class="nav-dropdown" id="navTouristDropdown">
+            <button
+              class="nav-dropdown__btn nav-dropdown__btn--tourist"
+              type="button"
+              id="touristDropdownBtn"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Tourist menu"
+            >
+              <span>Tourist</span>
+              <svg class="nav-dropdown__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-dropdown__menu" role="menu" aria-labelledby="touristDropdownBtn">
+              <a href="#tourist-signin" class="nav-dropdown__item" role="menuitem" data-tourist-action="signin">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                  <polyline points="10 17 15 12 10 7"></polyline>
+                  <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+                <span>Sign In</span>
+              </a>
+              <a href="#tourist-signup" class="nav-dropdown__item" role="menuitem" data-tourist-action="signup">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+                <span>Sign Up</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Creator Option with Dropdown -->
+          <div class="nav-dropdown" id="navCreatorDropdown">
+            <button
+              class="nav-dropdown__btn nav-dropdown__btn--creator btn btn--primary nav-cta"
+              type="button"
+              id="creatorDropdownBtn"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Creator menu"
+            >
+              <span>Creator</span>
+              <svg class="nav-dropdown__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-dropdown__menu" role="menu" aria-labelledby="creatorDropdownBtn">
+              <a href="../Creators/auth/index.html" class="nav-dropdown__item" role="menuitem">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                  <polyline points="10 17 15 12 10 7"></polyline>
+                  <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+                <span>Sign In</span>
+              </a>
+              <a href="../Creators/auth/index.html#register" class="nav-dropdown__item" role="menuitem">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+                <span>Sign Up</span>
+              </a>
+            </div>
+          </div>
+
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu__list">
+        <a href="../destinations/" class="mobile-menu__link">Destinations</a>
+        <a href="../index.html#creators" class="mobile-menu__link">Local Creators</a>
+        <a href="../index.html#experiences" class="mobile-menu__link">Experiences</a>
+        <a href="../index.html#why-locals" class="mobile-menu__link">The Win-Win Ecosystem</a>
+        <a href="./index.html" class="mobile-menu__link">Stories &amp; Guides</a>
+        <a href="../index.html#map-preview" class="mobile-menu__link">Explore Map</a>
+      </div>
+      <div class="mobile-menu__footer">
+        <div class="mobile-menu__portal-group">
+          <span class="mobile-menu__portal-title">Tourist</span>
+          <div class="mobile-menu__portal-row">
+            <a href="#tourist-signin" class="btn btn--outline-light w-full" data-tourist-action="signin">Sign In</a>
+            <a href="#tourist-signup" class="btn btn--outline-light w-full" data-tourist-action="signup">Sign Up</a>
+          </div>
+        </div>
+        <div class="mobile-menu__portal-group">
+          <span class="mobile-menu__portal-title">Creator</span>
+          <div class="mobile-menu__portal-row">
+            <a href="../Creators/auth/index.html" class="btn btn--outline-light w-full">Sign In</a>
+            <a href="../Creators/auth/index.html#register" class="btn btn--primary w-full">Sign Up</a>
+          </div>
+        </div>
+        <a href="./index.html" class="btn btn--outline-light w-full" style="margin-top: 4px;">All Stories</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         MAIN CONTENT — all sections rendered by story-detail.js
+         ═══════════════════════════════════════════════════════════════════ -->
+    <main id="storyMain" aria-live="polite">
+
+      <!-- Loading state shown before JS hydrates the page -->
+      <div id="storyLoadingState" class="story-detail-loading">
+        <div class="story-detail-loading__spinner" aria-label="Loading story" role="status"></div>
+        <p style="color: var(--color-text-muted); font-size: var(--text-sm);">Loading story&hellip;</p>
+      </div>
+
+      <!-- 1. Breadcrumbs -->
+      <nav id="storyBreadcrumb" class="story-breadcrumb" aria-label="Breadcrumb" hidden></nav>
+
+      <!-- 2. Story Header (category, h1, subtitle, meta) -->
+      <header id="storyHeader" class="story-detail-header" hidden></header>
+
+      <!-- 3. Hero Image -->
+      <figure id="storyHeroImage" class="story-hero-image" hidden></figure>
+
+      <!-- 4. Body (excerpt, at-a-glance, content paragraphs, pull-quote, verification) -->
+      <article id="storyBody" class="story-body" hidden></article>
+
+      <!-- 5. Related Content (destination card + other stories from same destination) -->
+      <aside id="storyRelated" class="story-related" aria-label="Related Content" hidden></aside>
+
+      <!-- 6. CTA -->
+      <section id="storyCta" class="stories-cta" aria-label="Contribute" hidden>
+        <div class="container" style="position: relative; z-index: 1; text-align: center;">
+          <span class="section-eyebrow section-eyebrow--sunset stories-cta__eyebrow" style="justify-content: center; margin-bottom: var(--space-md);">
+            Explore Further
+          </span>
+          <h2 class="stories-cta__title">
+            More of Sonbhadra Awaits.
+          </h2>
+          <p class="stories-cta__desc">
+            These stories are only the beginning. Discover more destinations, connect with local
+            creators, and plan a journey that goes beyond the surface.
+          </p>
+          <div class="stories-cta__actions">
+            <a href="./index.html" class="btn btn--primary">
+              <span>Read More Stories</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <a href="../destinations/" class="btn btn--outline-light">
+              <span>Explore Destinations</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="SonbhadraConnect Homepage">
+              <span class="brand__title">SONBHADRA</span>
+              <span class="brand__tagline">CONNECT</span>
+            </a>
+            <p class="footer-brand__desc">
+              The definitive digital ecosystem connecting travelers with authentic local creators,
+              hidden natural wonders, and sustainable community growth in Sonbhadra, Uttar Pradesh.
+            </p>
+          </div>
+          <div>
+            <h4 class="footer-col__title">Destinations</h4>
+            <ul class="footer-nav-list">
+              <li><a href="../destinations/lakhaniya-dari.html" class="footer-nav-link">Lakhaniya Dari Falls</a></li>
+              <li><a href="../destinations/rihand.html" class="footer-nav-link">Rihand Dam</a></li>
+              <li><a href="../destinations/vijaygarh-fort.html" class="footer-nav-link">Vijaygarh Fort</a></li>
+              <li><a href="../destinations/agori-fort.html" class="footer-nav-link">Agori Fort Sangam</a></li>
+              <li><a href="../destinations/mukha-falls.html" class="footer-nav-link">Mukha Waterfalls</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col__title">Stories</h4>
+            <ul class="footer-nav-list">
+              <li><a href="./index.html" class="footer-nav-link">All Stories</a></li>
+              <li><a href="./index.html?category=history" class="footer-nav-link">History</a></li>
+              <li><a href="./index.html?category=nature" class="footer-nav-link">Nature</a></li>
+              <li><a href="./index.html?category=culture" class="footer-nav-link">Culture</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col__title">Platform</h4>
+            <ul class="footer-nav-list">
+              <li><a href="../index.html#creators" class="footer-nav-link">Local Creators</a></li>
+              <li><a href="../index.html#creator-cta" class="footer-nav-link">Become a Creator</a></li>
+              <li><a href="../index.html#map-preview" class="footer-nav-link">Explore Map</a></li>
+              <li><a href="javascript:void(0);" class="footer-nav-link">Privacy &amp; Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>&copy; 2026 SonbhadraConnect. Built for authentic exploration.</div>
+          <div class="footer-socials">
+            <a href="https://instagram.com/[PLACEHOLDER]" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/[PLACEHOLDER]" class="footer-social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="../../scripts/story-detail.js"></script>
+  </body>
+</html>

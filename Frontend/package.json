@@ -1,0 +1,20 @@
+{
+  "name": "sonbhadraconnect",
+  "version": "1.0.0",
+  "description": "The definitive digital platform for discovering Sonbhadra through local eyes",
+  "main": "src/scripts/main.js",
+  "scripts": {
+    "dev": "npx serve -s . -l 3000",
+    "start": "npx serve -s . -l 3000"
+  },
+  "keywords": [
+    "sonbhadra",
+    "tourism",
+    "uttar-pradesh",
+    "travel",
+    "creators",
+    "ecotourism"
+  ],
+  "author": "SonbhadraConnect Ecosystem",
+  "license": "MIT"
+}

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Creator Login &amp; Register — SonbhadraConnect</title>
+    <meta name="description" content="Join the SonbhadraConnect Creator Platform. Register or log in to start sharing your local knowledge and stories about Sonbhadra." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="./auth.css" />
+  </head>
+  <body class="auth-page">
+
+    <!-- =========================================================
+         AUTH HEADER
+         ========================================================= -->
+    <header class="auth-header">
+      <a href="/index.html" class="auth-header__brand" aria-label="SonbhadraConnect Homepage">
+        <span class="auth-header__brand-title">SONBHADRA</span>
+        <span class="auth-header__brand-tag">CONNECT</span>
+      </a>
+      <a href="/index.html" class="auth-header__back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to site
+      </a>
+    </header>
+
+    <!-- =========================================================
+         SPLIT LAYOUT
+         ========================================================= -->
+    <div class="auth-layout">
+
+      <!-- LEFT: Immersive Visual Panel -->
+      <aside class="auth-visual" aria-hidden="true">
+        <img
+          src="/public/assets/images/destinations/lakhaniya-dari.webp"
+          alt="Lakhaniya Dari Waterfall — Sonbhadra"
+          class="auth-visual__img"
+          loading="eager"
+        />
+        <div class="auth-visual__overlay"></div>
+        <div class="auth-visual__content">
+          <p class="auth-visual__eyebrow">Creator Platform</p>
+          <h2 class="auth-visual__headline">
+            Tell Sonbhadra's<br />story through<br /><em>local eyes</em>
+          </h2>
+          <p class="auth-visual__body">
+            Join a growing community of local creators showcasing
+            Sonbhadra's hidden waterfalls, ancient forts, and vibrant
+            culture to the world.
+          </p>
+          <div class="auth-visual__tags">
+            <span class="auth-visual__tag">Lakhaniya Dari</span>
+            <span class="auth-visual__tag">Vijaygarh Fort</span>
+            <span class="auth-visual__tag">Rihand Dam</span>
+            <span class="auth-visual__tag">Salkhan Fossils</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Form Panel -->
+      <section class="auth-form-panel">
+        <div class="auth-form-container">
+
+          <!-- Tab Toggle -->
+          <div class="auth-tabs" role="tablist" aria-label="Authentication">
+            <button
+              class="auth-tab is-active"
+              role="tab"
+              id="tab-login"
+              aria-selected="true"
+              aria-controls="auth-panel-login"
+              data-tab="login"
+            >
+              Sign In
+            </button>
+            <button
+              class="auth-tab"
+              role="tab"
+              id="tab-register"
+              aria-selected="false"
+              aria-controls="auth-panel-register"
+              data-tab="register"
+            >
+              Become a Creator
+            </button>
+          </div>
+
+          <!-- =====================================================
+               LOGIN PANEL
+               ===================================================== -->
+          <div id="auth-panel-login" class="auth-panel is-active" role="tabpanel" aria-labelledby="tab-login">
+
+            <h1 class="auth-form-title">Welcome back</h1>
+            <p class="auth-form-subtitle">Sign in to your creator account. Don't have one? <span><button type="button" onclick="document.querySelector('[data-tab=register]').click()">Join for free →</button></span></p>
+
+            <!-- Global Error/Success -->
+            <div id="login-error" class="auth-global-error" role="alert" aria-live="polite"></div>
+
+            <form id="login-form" novalidate>
+              <!-- Email or Username -->
+              <div class="auth-field">
+                <label for="login-email" class="auth-label auth-label--required">Email or Creator Username</label>
+                <input
+                  type="text"
+                  id="login-email"
+                  name="emailOrUsername"
+                  class="auth-input"
+                  placeholder="ashish_films or ashish@email.com"
+                  autocomplete="username"
+                  spellcheck="false"
+                />
+                <div id="login-email-error" class="auth-field-error" role="alert"></div>
+              </div>
+
+              <!-- Password -->
+              <div class="auth-field">
+                <label for="login-password" class="auth-label auth-label--required">Password</label>
+                <div class="auth-input-wrap">
+                  <input
+                    type="password"
+                    id="login-password"
+                    name="password"
+                    class="auth-input auth-input--with-icon"
+                    placeholder="Your password"
+                    autocomplete="current-password"
+                  />
+                  <button type="button" class="auth-input-icon" data-toggle-password="login-password" aria-label="Show password">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </button>
+                </div>
+                <div id="login-password-error" class="auth-field-error" role="alert"></div>
+              </div>
+
+              <button type="submit" id="login-submit" class="auth-submit">
+                <span class="auth-submit__spinner" aria-hidden="true"></span>
+                <span class="auth-submit__text">Sign In to Dashboard</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </form>
+
+            <p class="auth-switch">
+              New here?
+              <button type="button" onclick="document.querySelector('[data-tab=register]').click()">Create your creator account</button>
+            </p>
+          </div>
+
+          <!-- =====================================================
+               REGISTER PANEL
+               ===================================================== -->
+          <div id="auth-panel-register" class="auth-panel" role="tabpanel" aria-labelledby="tab-register">
+
+            <h1 class="auth-form-title">Become a creator</h1>
+            <p class="auth-form-subtitle">Share Sonbhadra's hidden gems with the world. Join <span>free</span> in minutes.</p>
+
+            <!-- Global Error/Success -->
+            <div id="register-error" class="auth-global-error" role="alert" aria-live="polite"></div>
+
+            <form id="register-form" novalidate enctype="multipart/form-data">
+
+              <!-- ── BASICS ───────────────────────────────────────── -->
+              <p class="auth-section-label">Your identity</p>
+
+              <!-- Creator Username -->
+              <div class="auth-field">
+                <label for="reg-creatorName" class="auth-label auth-label--required">Creator Username</label>
+                <input
+                  type="text"
+                  id="reg-creatorName"
+                  name="creatorName"
+                  class="auth-input"
+                  placeholder="ashish_films (lowercase, no spaces)"
+                  autocomplete="username"
+                  spellcheck="false"
+                />
+                <div id="reg-creatorName-error" class="auth-field-error" role="alert"></div>
+              </div>
+
+              <!-- Full Name + Email -->
+              <div class="auth-row auth-row--2">
+                <div class="auth-field">
+                  <label for="reg-fullName" class="auth-label auth-label--required">Full Name</label>
+                  <input
+                    type="text"
+                    id="reg-fullName"
+                    name="fullName"
+                    class="auth-input"
+                    placeholder="Ashish Dubey"
+                    autocomplete="name"
+                  />
+                  <div id="reg-fullName-error" class="auth-field-error" role="alert"></div>
+                </div>
+                <div class="auth-field">
+                  <label for="reg-email" class="auth-label auth-label--required">Email</label>
+                  <input
+                    type="email"
+                    id="reg-email"
+                    name="email"
+                    class="auth-input"
+                    placeholder="ashish@email.com"
+                    autocomplete="email"
+                  />
+                  <div id="reg-email-error" class="auth-field-error" role="alert"></div>
+                </div>
+              </div>
+
+              <!-- Phone + City -->
+              <div class="auth-row auth-row--2">
+                <div class="auth-field">
+                  <label for="reg-phone" class="auth-label auth-label--required">Phone</label>
+                  <input
+                    type="tel"
+                    id="reg-phone"
+                    name="phone"
+                    class="auth-input"
+                    placeholder="9876543210"
+                    autocomplete="tel"
+                  />
+                  <div id="reg-phone-error" class="auth-field-error" role="alert"></div>
+                </div>
+                <div class="auth-field">
+                  <label for="reg-coveringCity" class="auth-label">Covering City</label>
+                  <input
+                    type="text"
+                    id="reg-coveringCity"
+                    name="coveringCity"
+                    class="auth-input"
+                    placeholder="Robertsganj, Renukoot…"
+                  />
+                </div>
+              </div>
+
+              <!-- Password + Confirm -->
+              <div class="auth-row auth-row--2">
+                <div class="auth-field">
+                  <label for="reg-password" class="auth-label auth-label--required">Password</label>
+                  <div class="auth-input-wrap">
+                    <input
+                      type="password"
+                      id="reg-password"
+                      name="password"
+                      class="auth-input auth-input--with-icon"
+                      placeholder="Min 8 characters"
+                      autocomplete="new-password"
+                    />
+                    <button type="button" class="auth-input-icon" data-toggle-password="reg-password" aria-label="Show password">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                  <div id="reg-password-error" class="auth-field-error" role="alert"></div>
+                </div>
+                <div class="auth-field">
+                  <label for="reg-confirm" class="auth-label auth-label--required">Confirm Password</label>
+                  <div class="auth-input-wrap">
+                    <input
+                      type="password"
+                      id="reg-confirm"
+                      name="confirmPassword"
+                      class="auth-input auth-input--with-icon"
+                      placeholder="Repeat password"
+                      autocomplete="new-password"
+                    />
+                    <button type="button" class="auth-input-icon" data-toggle-password="reg-confirm" aria-label="Show confirm password">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                  <div id="reg-confirm-error" class="auth-field-error" role="alert"></div>
+                </div>
+              </div>
+
+              <!-- ── PROFILE ──────────────────────────────────────── -->
+              <p class="auth-section-label">Your profile</p>
+
+              <!-- Avatar Upload -->
+              <div class="auth-field">
+                <label class="auth-label auth-label--required">Profile Photo</label>
+                <div class="auth-avatar-upload">
+                  <div class="auth-avatar-preview" id="avatar-preview-wrap" aria-hidden="true">
+                    <svg id="avatar-preview-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <img id="avatar-preview-img" src="" alt="Avatar preview" />
+                  </div>
+                  <div class="auth-avatar-info">
+                    <p>Upload a clear photo of yourself</p>
+                    <span>JPG, PNG or WebP · Max 5MB</span>
+                    <br />
+                    <button type="button" id="avatar-upload-btn" class="auth-avatar-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                      Choose Photo
+                    </button>
+                  </div>
+                </div>
+                <input
+                  type="file"
+                  id="reg-avatar"
+                  name="avatar"
+                  accept="image/*"
+                  class="sr-only"
+                  style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0"
+                  aria-hidden="true"
+                />
+                <div id="reg-avatar-error" class="auth-field-error" role="alert"></div>
+              </div>
+
+              <!-- Bio -->
+              <div class="auth-field">
+                <label for="reg-bio" class="auth-label">Bio</label>
+                <textarea
+                  id="reg-bio"
+                  name="bio"
+                  class="auth-textarea"
+                  placeholder="Tell travelers about you — your love for Sonbhadra, what you cover, and why they should follow your journey…"
+                  maxlength="300"
+                ></textarea>
+                <p class="auth-char-count"><span id="bio-char-count">0 / 300</span></p>
+              </div>
+
+              <!-- ── SOCIAL LINKS ─────────────────────────────────── -->
+              <p class="auth-section-label">Social links</p>
+
+              <div id="social-links-list" class="auth-social-list">
+                <div class="auth-social-item" data-link-id="1">
+                  <input type="url" class="auth-input auth-social-input" placeholder="https://instagram.com/yourhandle" />
+                </div>
+              </div>
+              <button type="button" id="add-social-link" class="auth-social-add">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add another link
+              </button>
+
+              <!-- ── ADDRESS (collapsible) ────────────────────────── -->
+              <button type="button" class="auth-section-toggle" id="address-toggle" aria-expanded="false" aria-controls="address-collapsible">
+                <span class="auth-section-toggle__label">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Address (optional)
+                </span>
+                <svg class="auth-section-toggle__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+
+              <div id="address-collapsible" class="auth-collapsible" aria-hidden="true">
+                <div class="auth-collapsible-inner">
+                  <div class="auth-field">
+                    <label for="reg-street" class="auth-label">Street / Locality</label>
+                    <input type="text" id="reg-street" name="street" class="auth-input" placeholder="Ward 5, Civil Lines…" />
+                  </div>
+                  <div class="auth-row auth-row--2">
+                    <div class="auth-field">
+                      <label for="reg-city" class="auth-label">City</label>
+                      <input type="text" id="reg-city" name="city" class="auth-input" placeholder="Robertsganj" />
+                    </div>
+                    <div class="auth-field">
+                      <label for="reg-state" class="auth-label">State</label>
+                      <input type="text" id="reg-state" name="state" class="auth-input" value="Uttar Pradesh" />
+                    </div>
+                  </div>
+                  <div class="auth-field">
+                    <label for="reg-pincode" class="auth-label">Pincode</label>
+                    <input type="text" id="reg-pincode" name="pincode" class="auth-input" placeholder="231216" maxlength="6" />
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" id="register-submit" class="auth-submit">
+                <span class="auth-submit__spinner" aria-hidden="true"></span>
+                <span class="auth-submit__text">Create Creator Account</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </form>
+
+            <p class="auth-switch">
+              Already have an account?
+              <button type="button" onclick="document.querySelector('[data-tab=login]').click()">Sign in here</button>
+            </p>
+
+          </div>
+          <!-- /register panel -->
+
+        </div>
+        <!-- /auth-form-container -->
+      </section>
+      <!-- /auth-form-panel -->
+
+    </div>
+    <!-- /auth-layout -->
+
+    <script type="module" src="./auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+/* ==========================================================================
+   DESIGN TOKENS & SYSTEM VARIABLES
+   Sonbhadra Tourism Platform
+   ========================================================================== */
+
+:root {
+  /* Brand Palette */
+  --color-forest: #1B4332;
+  --color-forest-dark: #0F251C;
+  --color-forest-deep: #08140F;
+  --color-leaf: #2D6A4F;
+  --color-leaf-light: #40916C;
+  --color-river: #2A6F97;
+  --color-river-light: #468FAF;
+  --color-river-deep: #013A63;
+  --color-earth: #8D6E63;
+  --color-earth-light: #A1887F;
+  --color-sunset: #F4A261;
+  --color-sunset-bright: #E76F51;
+  --color-sunset-glow: rgba(244, 162, 97, 0.15);
+  
+  /* Neutral & Editorial Shades */
+  --color-cream: #F5F3EF;
+  --color-cream-light: #FAF9F6;
+  --color-cream-dark: #ECE8E1;
+  --color-white: #FFFFFF;
+  --color-dark: #0D1612;
+  --color-dark-surface: #14201B;
+  --color-dark-elevated: #1B2B24;
+  --color-dark-border: rgba(255, 255, 255, 0.08);
+  --color-dark-border-hover: rgba(255, 255, 255, 0.18);
+  
+  /* Text Colors */
+  --color-text-primary: #121E19;
+  --color-text-secondary: #4A5B53;
+  --color-text-muted: #7D8F87;
+  --color-text-light: #F5F3EF;
+  --color-text-light-secondary: rgba(245, 243, 239, 0.72);
+  --color-text-light-muted: rgba(245, 243, 239, 0.48);
+
+  /* Typography */
+  --font-display: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-meta: 'Space Grotesk', 'Courier New', monospace;
+
+  /* Type Scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);       /* 12-13px */
+  --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 0.9375rem);    /* 14-15px */
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);        /* 16-17px */
+  --text-md: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);       /* 18-20px */
+  --text-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);          /* 20-24px */
+  --text-xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);        /* 24-30px */
+  --text-2xl: clamp(1.875rem, 1.65rem + 1.1vw, 2.375rem);      /* 30-38px */
+  --text-3xl: clamp(2.25rem, 1.95rem + 1.5vw, 3.125rem);       /* 36-50px */
+  --text-4xl: clamp(2.75rem, 2.3rem + 2.25vw, 4.25rem);        /* 44-68px */
+  --text-hero: clamp(2.25rem, 1.6rem + 2.2vw, 3.875rem);       /* 36-62px */
+  --text-display: clamp(3.5rem, 2.5rem + 4vw, 6.5rem);         /* 56-104px */
+
+  /* Spacing System */
+  --space-3xs: 0.25rem;   /* 4px */
+  --space-2xs: 0.5rem;    /* 8px */
+  --space-xs: 0.75rem;    /* 12px */
+  --space-sm: 1rem;       /* 16px */
+  --space-md: 1.5rem;     /* 24px */
+  --space-lg: 2rem;       /* 32px */
+  --space-xl: 3rem;       /* 48px */
+  --space-2xl: 4.5rem;    /* 72px */
+  --space-3xl: 6rem;      /* 96px */
+  --space-4xl: 8rem;      /* 128px */
+  --space-section: clamp(4.5rem, 7vw, 8.5rem);
+
+  /* Layout & Containers */
+  --container-max-width: 1440px;
+  --container-wide: 1600px;
+  --container-narrow: 1120px;
+  --container-padding: clamp(1.25rem, 4vw, 3.5rem);
+
+  /* Elevation & Shadows (Restrained & Editorial) */
+  --shadow-sm: 0 2px 8px rgba(10, 20, 15, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(10, 20, 15, 0.08);
+  --shadow-lg: 0 16px 40px -8px rgba(10, 20, 15, 0.12);
+  --shadow-xl: 0 24px 64px -12px rgba(10, 20, 15, 0.18);
+  --shadow-glow: 0 0 40px rgba(244, 162, 97, 0.2);
+
+  /* Radii (Clean & Restrained) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-cinematic: 1200ms cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Header & Navigation */
+  --nav-height: 84px;
+  --nav-height-scrolled: 68px;
+  --z-nav: 1000;
+  --z-modal: 2000;
+  --z-toast: 3000;
+}

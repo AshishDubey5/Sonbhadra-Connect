@@ -1,0 +1,92 @@
+/* ==========================================================================
+   LAYOUT & CONTAINERS
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--full {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Grid Utilities */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.grid--2-col {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid--2-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid--3-col {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid--3-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid--3-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid--4-col {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid--4-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid--4-col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Asymmetric Editorial Grids */
+.editorial-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .editorial-split {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+  
+  .editorial-split--reversed {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+}

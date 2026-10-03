@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Meet Our Creators — SonbhadraConnect</title>
+    <meta name="description" content="Discover local travel creators, storytellers, and field guides who document the hidden gems of Sonbhadra — waterfalls, ancient forts, fossils and more." />
+    <meta name="keywords" content="Sonbhadra creators, local travel guides, SonbhadraConnect creators, travel storytellers Uttar Pradesh" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Meet Our Creators — SonbhadraConnect" />
+    <meta property="og:description" content="Discover the passionate local creators documenting Sonbhadra's hidden wonders — from waterfalls to ancient forts." />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="./creators-dashboard.css" />
+  </head>
+  <body class="creators-dash-body">
+
+    <!-- =========================================================
+         NAVIGATION BAR
+         ========================================================= -->
+    <nav class="cd-nav" aria-label="Site Navigation">
+      <a href="/index.html" class="cd-nav__brand" aria-label="SonbhadraConnect Home">
+        <span class="cd-nav__brand-main">SONBHADRA</span>
+        <span class="cd-nav__brand-sub">Tourism</span>
+      </a>
+
+      <div class="cd-nav__breadcrumb" aria-label="Breadcrumb">
+        <a href="/index.html">Home</a>
+        <span class="cd-nav__breadcrumb-sep">›</span>
+        <span class="cd-nav__breadcrumb-current">Creators</span>
+      </div>
+
+      <div class="cd-nav__right">
+        <a href="/index.html#destinations" class="cd-nav__link">Destinations</a>
+        <a href="/src/app/stories/index.html" class="cd-nav__link">Stories</a>
+        <a href="/src/app/Creators/auth/index.html" class="cd-nav__cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          Become a Creator
+        </a>
+      </div>
+    </nav>
+
+    <!-- =========================================================
+         MAIN PAGE
+         ========================================================= -->
+    <main class="cd-page" id="cd-main">
+
+      <!-- HERO SECTION -->
+      <section class="cd-hero" aria-labelledby="cd-hero-title">
+        <div class="cd-hero__eyebrow">
+          <span class="cd-hero__eyebrow-dot" aria-hidden="true"></span>
+          Local Creator Network
+        </div>
+        <h1 class="cd-hero__title" id="cd-hero-title">
+          Meet the <span>Voices of</span><br />Sonbhadra
+        </h1>
+        <p class="cd-hero__desc">
+          A community of passionate local storytellers, drone cinematographers, heritage researchers, and trekking specialists — each uncovering Sonbhadra's hidden wonders.
+        </p>
+
+        <!-- Live Stats -->
+        <div class="cd-hero__stats" role="list" aria-label="Creator statistics">
+          <div class="cd-hero__stat" role="listitem">
+            <span class="cd-hero__stat-val" id="stat-total-creators">—</span>
+            <span class="cd-hero__stat-label">Registered Creators</span>
+          </div>
+          <div class="cd-hero__stat-divider" aria-hidden="true"></div>
+          <div class="cd-hero__stat" role="listitem">
+            <span class="cd-hero__stat-val" id="stat-featured-creators">—</span>
+            <span class="cd-hero__stat-label">Featured Creators</span>
+          </div>
+          <div class="cd-hero__stat-divider" aria-hidden="true"></div>
+          <div class="cd-hero__stat" role="listitem">
+            <span class="cd-hero__stat-val">9</span>
+            <span class="cd-hero__stat-label">Districts Covered</span>
+          </div>
+          <div class="cd-hero__stat-divider" aria-hidden="true"></div>
+          <div class="cd-hero__stat" role="listitem">
+            <span class="cd-hero__stat-val">Live</span>
+            <span class="cd-hero__stat-label">Creator Network</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN CONTENT -->
+      <div class="cd-container">
+
+        <!-- FILTER & SEARCH -->
+        <div class="cd-filters">
+          <div class="cd-filters__inner">
+
+            <!-- Search -->
+            <div class="cd-search-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input
+                type="text"
+                id="cd-search-input"
+                class="cd-search-input"
+                placeholder="Search by name, area, or specialty…"
+                aria-label="Search creators"
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Category Pills -->
+            <div class="cd-filter-pills" role="group" aria-label="Filter by category">
+              <button type="button" class="cd-filter-pill is-active" data-filter="all" id="filter-all">All Creators</button>
+              <button type="button" class="cd-filter-pill" data-filter="trekking" id="filter-trekking">Trekking</button>
+              <button type="button" class="cd-filter-pill" data-filter="cinematic" id="filter-cinematic">Cinematic</button>
+              <button type="button" class="cd-filter-pill" data-filter="heritage" id="filter-heritage">Heritage</button>
+              <button type="button" class="cd-filter-pill" data-filter="nature" id="filter-nature">Nature</button>
+            </div>
+
+            <!-- Count indicator -->
+            <p class="cd-filters__count" id="cd-creators-count" aria-live="polite">
+              Showing <span id="cd-count-num">—</span> creators
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CREATORS SECTION HEADER -->
+        <div class="cd-section-header">
+          <div>
+            <h2 class="cd-section-title">All Registered Creators</h2>
+            <p class="cd-section-sub">Every storyteller who has joined and documented Sonbhadra's landscape</p>
+          </div>
+        </div>
+
+        <!-- CREATORS GRID — populated by JS -->
+        <div class="cd-grid" id="cd-creators-grid" role="list" aria-label="Creators list">
+          <!-- Skeleton loading cards shown initially -->
+          <div class="cd-skeleton-card" aria-hidden="true">
+            <div class="cd-skeleton-cover"></div>
+            <div class="cd-skeleton-body">
+              <div class="cd-skeleton-avatar"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--md"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--sm"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--full"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--full"></div>
+            </div>
+          </div>
+          <div class="cd-skeleton-card" aria-hidden="true">
+            <div class="cd-skeleton-cover"></div>
+            <div class="cd-skeleton-body">
+              <div class="cd-skeleton-avatar"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--md"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--sm"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--full"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--full"></div>
+            </div>
+          </div>
+          <div class="cd-skeleton-card" aria-hidden="true">
+            <div class="cd-skeleton-cover"></div>
+            <div class="cd-skeleton-body">
+              <div class="cd-skeleton-avatar"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--md"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--sm"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--full"></div>
+              <div class="cd-skeleton-line cd-skeleton-line--full"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMPTY STATE (shown when no results) -->
+        <div class="cd-empty" id="cd-empty-state" role="status" aria-live="polite" style="display:none;">
+          <div class="cd-empty__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3 class="cd-empty__title">No creators found</h3>
+          <p class="cd-empty__desc">Try a different search term or category filter to discover more creators.</p>
+        </div>
+
+        <!-- JOIN / CTA BANNER -->
+        <div class="cd-join-banner" aria-labelledby="cd-join-title">
+          <h2 class="cd-join-banner__title" id="cd-join-title">Are you a local guide or storyteller?</h2>
+          <p class="cd-join-banner__desc">
+            Join our creator network and share Sonbhadra's hidden wonders with thousands of travelers. No experience needed — just your passion for this land.
+          </p>
+          <div class="cd-join-banner__actions">
+            <a href="/src/app/Creators/auth/index.html" class="cd-btn-primary" id="btn-join-creator">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+              </svg>
+              Join as Creator
+            </a>
+            <a href="/index.html" class="cd-btn-secondary" id="btn-explore-site">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+              Explore Sonbhadra
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- JS Controller -->
+    <script type="module" src="./creators-dashboard.js"></script>
+  </body>
+</html>

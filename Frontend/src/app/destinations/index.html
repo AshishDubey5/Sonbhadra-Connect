@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- SEO Title & Meta Description -->
+    <title>All Destinations — sonbhadraconnect.com</title>
+    <meta
+      name="description"
+      content="Explore all destinations in Sonbhadra — from cascading waterfalls and ancient citadels to Asia's largest reservoir and 1.4-billion-year-old fossil parks on sonbhadraconnect.com."
+    />
+    <meta
+      name="keywords"
+      content="sonbhadraconnect.com, Sonbhadra destinations, Lakhaniya Dari, Vijaygarh Fort, Rihand Dam, Mukha Falls, Agori Fort, Salkhan Fossils, Sonbhadra waterfalls, Sonbhadra tourism"
+    />
+    <meta name="author" content="sonbhadraconnect.com Ecosystem" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sonbhadraconnect.com/destinations/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sonbhadraconnect.com/destinations/" />
+    <meta property="og:title" content="All Destinations — sonbhadraconnect.com" />
+    <meta
+      property="og:description"
+      content="Explore all destinations in Sonbhadra — waterfalls, forts, dams, and prehistoric geological parks on sonbhadraconnect.com."
+    />
+    <meta
+      property="og:image"
+      content="https://sonbhadraconnect.com/public/assets/images/destinations/lakhaniya-dari.webp"
+    />
+    <meta property="og:site_name" content="sonbhadraconnect.com" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://sonbhadraconnect.com/destinations/" />
+    <meta name="twitter:title" content="All Destinations — sonbhadraconnect.com" />
+    <meta
+      name="twitter:description"
+      content="Explore all destinations in Sonbhadra — waterfalls, forts, dams, and prehistoric geological parks on sonbhadraconnect.com."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sonbhadraconnect.com/public/assets/images/destinations/lakhaniya-dari.webp"
+    />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Self-healing URL base: ensures clean URLs without trailing slashes resolve relative paths correctly
+      (function() {
+        var p = window.location.pathname;
+        if (p && !p.endsWith('/') && !p.endsWith('.html')) {
+          var b = document.createElement('base');
+          b.href = window.location.origin + p + '/';
+          document.head.appendChild(b);
+        }
+      })();
+    </script>
+
+    <!-- Unified Main Stylesheet & Destinations Page Stylesheet -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/sections/_destinations-page.css" />
+  </head>
+  <body>
+    <!-- Accessible Skip Link -->
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+    <!-- =========================================================================
+       NAVIGATION (Same as main page, paths adjusted)
+       ========================================================================= -->
+    <header class="site-header" id="siteHeader" role="banner">
+      <div class="nav-container">
+        <!-- Brand Logo -->
+        <a href="../index.html" class="brand" aria-label="sonbhadraconnect.com Homepage">
+          <span class="brand__title">SONBHADRA</span>
+          <span class="brand__tagline">CONNECT</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <nav class="nav-menu" aria-label="Main Navigation">
+          <a href="./index.html" class="nav-link" style="color: var(--color-sunset)">Destinations</a>
+          <a href="../index.html#creators" class="nav-link">Creators</a>
+          <a href="../index.html#experiences" class="nav-link">Experiences</a>
+          <a href="../index.html#why-locals" class="nav-link">Why Locals</a>
+          <a href="../index.html#stories" class="nav-link">Stories</a>
+          <a href="../index.html#map-preview" class="nav-link">Explore Map</a>
+        </nav>
+
+        <!-- Nav CTAs & Mobile Hamburger -->
+        <div class="nav-actions">
+          <!-- Tourist Option with Dropdown -->
+          <div class="nav-dropdown" id="navTouristDropdown">
+            <button
+              class="nav-dropdown__btn nav-dropdown__btn--tourist"
+              type="button"
+              id="touristDropdownBtn"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Tourist menu"
+            >
+              <span>Tourist</span>
+              <svg class="nav-dropdown__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-dropdown__menu" role="menu" aria-labelledby="touristDropdownBtn">
+              <a href="#tourist-signin" class="nav-dropdown__item" role="menuitem" data-tourist-action="signin">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                  <polyline points="10 17 15 12 10 7"></polyline>
+                  <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+                <span>Sign In</span>
+              </a>
+              <a href="#tourist-signup" class="nav-dropdown__item" role="menuitem" data-tourist-action="signup">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+                <span>Sign Up</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Creator Option with Dropdown -->
+          <div class="nav-dropdown" id="navCreatorDropdown">
+            <button
+              class="nav-dropdown__btn nav-dropdown__btn--creator btn btn--primary nav-cta"
+              type="button"
+              id="creatorDropdownBtn"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Creator menu"
+            >
+              <span>Creator</span>
+              <svg class="nav-dropdown__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-dropdown__menu" role="menu" aria-labelledby="creatorDropdownBtn">
+              <a href="../Creators/auth/index.html" class="nav-dropdown__item" role="menuitem">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                  <polyline points="10 17 15 12 10 7"></polyline>
+                  <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+                <span>Sign In</span>
+              </a>
+              <a href="../Creators/auth/index.html#register" class="nav-dropdown__item" role="menuitem">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+                <span>Sign Up</span>
+              </a>
+            </div>
+          </div>
+
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Fullscreen Drawer -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu__list">
+        <a href="./index.html" class="mobile-menu__link">Destinations</a>
+        <a href="../index.html#creators" class="mobile-menu__link">Local Creators</a>
+        <a href="../index.html#experiences" class="mobile-menu__link">Experiences</a>
+        <a href="../index.html#why-locals" class="mobile-menu__link">The Win-Win Ecosystem</a>
+        <a href="../index.html#stories" class="mobile-menu__link">Stories &amp; Guides</a>
+        <a href="../index.html#map-preview" class="mobile-menu__link">Explore Map</a>
+      </div>
+      <div class="mobile-menu__footer">
+        <div class="mobile-menu__portal-group">
+          <span class="mobile-menu__portal-title">Tourist</span>
+          <div class="mobile-menu__portal-row">
+            <a href="#tourist-signin" class="btn btn--outline-light w-full" data-tourist-action="signin">Sign In</a>
+            <a href="#tourist-signup" class="btn btn--outline-light w-full" data-tourist-action="signup">Sign Up</a>
+          </div>
+        </div>
+        <div class="mobile-menu__portal-group">
+          <span class="mobile-menu__portal-title">Creator</span>
+          <div class="mobile-menu__portal-row">
+            <a href="../Creators/auth/index.html" class="btn btn--outline-light w-full">Sign In</a>
+            <a href="../Creators/auth/index.html#register" class="btn btn--primary w-full">Sign Up</a>
+          </div>
+        </div>
+        <a href="./index.html" class="btn btn--outline-light w-full" style="margin-top: 4px;">Explore Destinations</a>
+      </div>
+    </div>
+
+    <main id="mainContent">
+      <!-- =========================================================================
+         1. DESTINATIONS HERO
+         ========================================================================= -->
+      <section class="dest-hero" id="destHero">
+        <div class="dest-hero__bg">
+          <img
+            src="../../../public/assets/images/destinations/vijaygarh-fort.webp"
+            alt="Sonbhadra Landscape Panorama"
+            loading="eager"
+          />
+        </div>
+        <div class="dest-hero__gradient"></div>
+        <div class="dest-hero__body">
+          <div class="container">
+            <!-- Breadcrumb -->
+            <div class="dest-hero__breadcrumb">
+              <a href="../index.html">Home</a>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+              <span>Destinations</span>
+            </div>
+
+            <h1 class="dest-hero__title">
+              ALL DESTINATIONS <span class="dest-hero__title-accent">· SONBHADRA</span>
+            </h1>
+
+            <p class="dest-hero__lead">
+              Sonbhadra, known as the Energy Capital of India, is a land of ancient Vindhyan landscapes,
+              untouched waterfalls, medieval fortresses, and prehistoric geology. Explore every verified
+              destination curated through authentic local creators who have lived with these landscapes
+              for generations.
+            </p>
+
+            <div class="dest-hero__stats">
+              <div class="dest-hero__stat">
+                <span class="dest-hero__stat-value">9+</span>
+                <span class="dest-hero__stat-label">Destinations</span>
+              </div>
+              <div class="dest-hero__stat">
+                <span class="dest-hero__stat-value">6</span>
+                <span class="dest-hero__stat-label">Categories</span>
+              </div>
+              <div class="dest-hero__stat">
+                <span class="dest-hero__stat-value">1.4B</span>
+                <span class="dest-hero__stat-label">Years of History</span>
+              </div>
+              <div class="dest-hero__stat">
+                <span class="dest-hero__stat-value">100%</span>
+                <span class="dest-hero__stat-label">Locally Verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         2. FILTER BAR
+         ========================================================================= -->
+      <div class="dest-filter-section" id="destFilters">
+        <div class="container">
+          <div class="dest-filter-bar">
+            <button class="filter-pill filter-pill--active" data-dest-filter="all">All Destinations</button>
+            <button class="filter-pill" data-dest-filter="waterfall">Waterfalls</button>
+            <button class="filter-pill" data-dest-filter="heritage">Heritage & Forts</button>
+            <button class="filter-pill" data-dest-filter="dams">Dams & Lakes</button>
+            <button class="filter-pill" data-dest-filter="confluence">River Confluences</button>
+            <button class="filter-pill" data-dest-filter="geological">Geological</button>
+            <button class="filter-pill" data-dest-filter="nature">Nature & Wildlife</button>
+            <span class="dest-filter-results" id="destFilterCount">9 destinations</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================================
+         3. DESTINATIONS GRID
+         ========================================================================= -->
+      <section class="dest-grid-section" id="destGrid">
+        <div class="container">
+          <!-- Main Grid (Always Visible) -->
+          <div class="dest-grid" id="destMainGrid">
+
+            <!-- Card 1: Lakhaniya Dari Falls -->
+            <article class="dest-page-card dest-reveal" data-category="waterfall" id="dest-lakhaniya-dari">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/lakhaniya-dari.webp"
+                  alt="Lakhaniya Dari multi-tiered waterfall cascading through forested gorges"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--sunset">Featured · Waterfall</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Lakhaniya Dari Falls</h3>
+                <p class="dest-page-card__desc">
+                  A multi-tiered natural cascade nestled in deep forested gorges. Renowned for its
+                  untouched nature trails, boulder streams, and tranquil monsoon mist. One of the most
+                  breathtaking and virgin waterfalls in all of Uttar Pradesh.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Near Robertsganj</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: July – Feb</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Moderate Trek</span>
+                  </div>
+                </div>
+                <a href="./lakhaniya-dari.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 2: Rihand Dam -->
+            <article class="dest-page-card dest-reveal delay-1" data-category="dams" id="dest-rihand-dam">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/rihand-dam.webp"
+                  alt="Govind Ballabh Pant Sagar reservoir with rolling hills"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--river">Asia's Giant Reservoir</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Govind Ballabh Pant Sagar (Rihand Dam)</h3>
+                <p class="dest-page-card__desc">
+                  A massive freshwater reservoir enveloped by rolling hills with golden sunset horizons.
+                  One of Asia's largest man-made lakes, offering peaceful boat rides and spectacular
+                  panoramic viewpoints across endless water expanses.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Pipri, Sonbhadra</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Oct – Mar</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Easy Access</span>
+                  </div>
+                </div>
+                <a href="./rihand.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 3: Vijaygarh Fort -->
+            <article class="dest-page-card dest-reveal delay-2" data-category="heritage" id="dest-vijaygarh-fort">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/vijaygarh-fort.webp"
+                  alt="Ancient Vijaygarh Fort atop high cliffs"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--leaf">5th Century Heritage</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Vijaygarh Fort</h3>
+                <p class="dest-page-card__desc">
+                  Medieval citadel atop high cliffs featuring perennial cave reservoirs and 360-degree
+                  panoramic views. This 5th-century fortress showcases remarkable ancient water engineering
+                  and offers one of the most dramatic cliff-top panoramas in the Vindhyan range.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Near Robertsganj</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Year-round</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Moderate Climb</span>
+                  </div>
+                </div>
+                <a href="./vijaygarh-fort.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 4: Agori Fort -->
+            <article class="dest-page-card dest-reveal delay-3" data-category="confluence" id="dest-agori-fort">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/agori-fort.webp"
+                  alt="Agori Fort at the confluence of Son and Renu rivers"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--glass">River Confluence</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Agori Fort</h3>
+                <p class="dest-page-card__desc">
+                  River island fortress flanked by the Son and Renu rivers, reachable by local boatmen.
+                  A uniquely dramatic setting where two rivers converge around an ancient stronghold,
+                  accessible only by traditional wooden boat crossings.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Chopan, Sonbhadra</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Oct – Apr</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Boat Crossing</span>
+                  </div>
+                </div>
+                <a href="./agori-fort.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 5: Mukha Waterfalls -->
+            <article class="dest-page-card dest-reveal delay-4" data-category="waterfall" id="dest-mukha-falls">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/mukha-falls.webp"
+                  alt="Mukha Falls plunging into sandstone gorges"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--sunset">Canyon &amp; Rock Art</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Mukha Waterfalls</h3>
+                <p class="dest-page-card__desc">
+                  Dramatic waterfall plunging into ancient sandstone gorges with prehistoric rock shelters.
+                  Surrounded by untouched canyon walls bearing ancient rock paintings, making it a
+                  convergence of natural beauty and archaeological significance.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Ghorawal, Sonbhadra</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Aug – Jan</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Moderate Trek</span>
+                  </div>
+                </div>
+                <a href="./mukha-falls.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 6: Salkhan Fossil Park -->
+            <article class="dest-page-card dest-reveal delay-5" data-category="geological" id="dest-salkhan-fossils">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/salkhan-fossils.webp"
+                  alt="Salkhan Stromatolite fossil formations"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--glass">1.4 Billion Years Old</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Salkhan Fossil Park</h3>
+                <p class="dest-page-card__desc">
+                  Globally renowned geological park preserving petrified algal fossils older than
+                  dinosaurs. A UNESCO-recognized site featuring stromatolite formations that date back
+                  1.4 billion years — among the oldest evidence of life on Earth.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Near Robertsganj</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Year-round</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Easy Access</span>
+                  </div>
+                </div>
+                <a href="./vijaygarh-fort.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Explore More Button -->
+          <div class="dest-explore-more-wrap">
+            <button class="dest-explore-more-btn" id="destExploreMoreBtn" aria-expanded="false" aria-controls="destHiddenGrid">
+              <span id="destExploreMoreText">Explore More</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Hidden Grid (Revealed on Explore More) -->
+          <div class="dest-grid--hidden" id="destHiddenGrid">
+
+            <!-- Card 7: Obra Dam -->
+            <article class="dest-page-card" data-category="dams" id="dest-obra-dam">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/rihand-dam.webp"
+                  alt="Obra Dam reservoir surrounded by green hills"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--river">Hydroelectric Marvel</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Obra Dam</h3>
+                <p class="dest-page-card__desc">
+                  A serene hydroelectric dam surrounded by lush Vindhyan forests and rolling green
+                  hills. The spillway during monsoon creates a spectacular cascade that rivals natural
+                  waterfalls, drawing photographers from across the region.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Obra, Sonbhadra</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Sep – Feb</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Easy Access</span>
+                  </div>
+                </div>
+                <a href="./rihand.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 8: Chopan Ghats -->
+            <article class="dest-page-card" data-category="confluence" id="dest-chopan-ghats">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/agori-fort.webp"
+                  alt="Chopan Ghats along the Son River"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--glass">Sacred River Ghats</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Chopan Ghats</h3>
+                <p class="dest-page-card__desc">
+                  Ancient stone ghats along the Son River where local tribal communities gather for
+                  seasonal festivals and cultural ceremonies. The river banks reveal beautiful sandstone
+                  formations and offer peaceful sunset experiences along pristine waters.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Chopan, Sonbhadra</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Nov – Mar</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Easy Access</span>
+                  </div>
+                </div>
+                <a href="./agori-fort.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 9: Kaimur Wildlife Sanctuary -->
+            <article class="dest-page-card" data-category="nature" id="dest-kaimur-sanctuary">
+              <div class="dest-page-card__image">
+                <img
+                  src="../../../public/assets/images/destinations/lakhaniya-dari.webp"
+                  alt="Dense Vindhyan forest canopy in Kaimur Wildlife Sanctuary"
+                  loading="lazy"
+                />
+                <div class="dest-page-card__image-overlay"></div>
+                <div class="dest-page-card__category">
+                  <span class="badge badge--leaf">Protected Wildlife</span>
+                </div>
+              </div>
+              <div class="dest-page-card__body">
+                <h3 class="dest-page-card__title">Kaimur Wildlife Sanctuary</h3>
+                <p class="dest-page-card__desc">
+                  A vast protected forest area spanning the Kaimur Range, home to leopards, sloth bears,
+                  sambar deer, and rich birdlife. The sanctuary encompasses dramatic cliff faces,
+                  seasonal waterfalls, and pristine Vindhyan dry deciduous forests.
+                </p>
+                <div class="dest-page-card__meta">
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Kaimur Range</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Best: Nov – Apr</span>
+                  </div>
+                  <div class="dest-page-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>Guided Safari</span>
+                  </div>
+                </div>
+                <a href="./mukha-falls.html" class="dest-page-card__link">
+                  Read more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         4. ABOUT SONBHADRA (Editorial Section — inspired by second screenshot)
+         ========================================================================= -->
+      <section class="dest-about-section" id="destAbout">
+        <div class="container">
+          <div class="dest-about-grid">
+            <div class="dest-about__content dest-reveal">
+              <h2>A land of beautiful contrasts</h2>
+              <p>
+                Sonbhadra, Uttar Pradesh's southernmost district, is a world within itself. With its
+                kaleidoscope of ancient forests, cascading waterfalls, and prehistoric geological
+                formations, Sonbhadra never fails to captivate. From its rich tribal heritage and
+                medieval fortresses to its dramatic river confluences and vast inland lakes, the
+                district offers an unforgettable experience for the curious traveler.
+              </p>
+              <p>
+                One of India's most geologically significant landscapes, Sonbhadra's roots date back
+                1.4 billion years to the Precambrian era, when its stromatolite fossils were being
+                formed — among the oldest evidence of life on Earth. Since then, the land has witnessed
+                the rise and fall of ancient kingdoms, from the Chandela dynasty who built Vijaygarh
+                Fort to the Mughal governors who controlled the river trade routes.
+              </p>
+              <p>
+                While Sonbhadra is a convergence of varied landscapes, what sets it apart is its
+                untouched character. Here, you can experience the best of both worlds — the timeless
+                serenity of a pristine wilderness alongside the rich cultural tapestry of indigenous
+                tribal communities. On one hand, you'll find virgin waterfalls, dense Vindhyan canopy,
+                and ancient rock shelters. On the other, the district offers Asia's largest man-made
+                lake, centuries-old river ghats, and a thriving local creator ecosystem.
+              </p>
+              <a href="../index.html#introduction" class="dest-about__read-more">
+                Read more
+              </a>
+            </div>
+
+            <div class="dest-about__sidebar dest-reveal delay-2">
+              <div class="dest-about__info-card">
+                <div class="dest-about__info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="dest-about__info-title">How to Reach</div>
+                  <div class="dest-about__info-text">Nearest railway: Robertsganj Junction. Nearest airport: Varanasi (120km). Well connected by NH-2 and state highways.</div>
+                </div>
+              </div>
+
+              <div class="dest-about__info-card">
+                <div class="dest-about__info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="dest-about__info-title">Best Time to Visit</div>
+                  <div class="dest-about__info-text">October – March for pleasant weather. July – September for peak waterfall season (monsoon).</div>
+                </div>
+              </div>
+
+              <div class="dest-about__info-card">
+                <div class="dest-about__info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="dest-about__info-title">Travel Advisory</div>
+                  <div class="dest-about__info-text">Always travel with a verified local guide. Some waterfalls and forts require moderate trekking. Carry water and sun protection.</div>
+                </div>
+              </div>
+
+              <div class="dest-about__info-card">
+                <div class="dest-about__info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="dest-about__info-title">Local Creators</div>
+                  <div class="dest-about__info-text">Connect with verified native guides, drone cinematographers, and heritage researchers through our creator network.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================================
+       PREMIUM EDITORIAL FOOTER (Same as main page, paths adjusted)
+       ========================================================================= -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="sonbhadraconnect.com Homepage">
+              <span class="brand__title">SONBHADRA</span>
+              <span class="brand__tagline">CONNECT</span>
+            </a>
+            <p class="footer-brand__desc">
+              The definitive digital ecosystem connecting travelers with authentic local creators,
+              hidden natural wonders, and sustainable community growth in Sonbhadra, Uttar Pradesh.
+            </p>
+          </div>
+
+          <!-- Destinations Column -->
+          <div>
+            <h4 class="footer-col__title">Destinations</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#dest-lakhaniya-dari" class="footer-nav-link">Lakhaniya Dari Falls</a></li>
+              <li><a href="#dest-rihand-dam" class="footer-nav-link">Rihand Dam (Govind Sagar)</a></li>
+              <li><a href="#dest-vijaygarh-fort" class="footer-nav-link">Vijaygarh Fort</a></li>
+              <li><a href="#dest-agori-fort" class="footer-nav-link">Agori Fort Sangam</a></li>
+              <li><a href="#dest-mukha-falls" class="footer-nav-link">Mukha Waterfalls</a></li>
+              <li><a href="#dest-salkhan-fossils" class="footer-nav-link">Salkhan Fossil Park</a></li>
+            </ul>
+          </div>
+
+          <!-- Community & Creators Column -->
+          <div>
+            <h4 class="footer-col__title">Ecosystem</h4>
+            <ul class="footer-nav-list">
+              <li><a href="../index.html#creators" class="footer-nav-link">Local Creators Network</a></li>
+              <li><a href="../index.html#why-locals" class="footer-nav-link">Why Explore with Locals</a></li>
+              <li><a href="../index.html#creator-cta" class="footer-nav-link">Become a Creator</a></li>
+              <li><a href="../index.html#creator-cta" class="footer-nav-link">Local Business Partnerships</a></li>
+              <li><a href="../index.html#experiences" class="footer-nav-link">Thematic Expeditions</a></li>
+            </ul>
+          </div>
+
+          <!-- Stories & Legal Column -->
+          <div>
+            <h4 class="footer-col__title">Platform</h4>
+            <ul class="footer-nav-list">
+              <li><a href="../index.html#stories" class="footer-nav-link">Vindhya Field Notes</a></li>
+              <li><a href="../index.html#map-preview" class="footer-nav-link">Regional Exploration Map</a></li>
+              <li><a href="../index.html#introduction" class="footer-nav-link">About the Ecosystem</a></li>
+              <li><a href="javascript:void(0);" class="footer-nav-link">Responsible Travel Pledge</a></li>
+              <li><a href="javascript:void(0);" class="footer-nav-link">Privacy &amp; Terms</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div>&copy; 2026 sonbhadraconnect.com Platform. Built for authentic exploration.</div>
+          <div class="footer-socials">
+            <a href="https://instagram.com/" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="https://youtube.com/" class="footer-social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
+            <a href="https://twitter.com/" class="footer-social-link" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Main JavaScript Module Entry Point for Destinations -->
+    <script type="module" src="/src/scripts/destinations-main.js"></script>
+  </body>
+</html>

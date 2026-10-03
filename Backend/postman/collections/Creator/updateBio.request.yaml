@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:4242/api/v1/creators/update-bio
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"bio\": \"ashish ji\",\r
+
+    \    \"socialLinks\": \"instaji\"\r
+
+    }"
+order: 4496704673392885

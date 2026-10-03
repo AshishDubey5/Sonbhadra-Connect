@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Ashish (@creator_2) — SonbhadraConnect Creator</title>
+    <meta name="description" content="Discover Ashish's aerial cinematography and nature films documenting the canyon corridors, river valleys and untamed woodlands of Sonbhadra." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Ashish (@creator_2) — SonbhadraConnect" />
+    <meta property="og:description" content="Aerial & Cinematic Filmmaker capturing the vast landscapes of Sonbhadra — Son River Valley, Chopan and beyond." />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="./creator-profile.css" />
+  </head>
+  <body class="creator-profile-body">
+
+    <!-- NAVIGATION -->
+    <nav class="cp-nav" aria-label="Site Navigation">
+      <a href="/index.html" class="cp-nav__brand" aria-label="SonbhadraConnect Home">
+        <span class="cp-nav__brand-main">SONBHADRA</span>
+        <span class="cp-nav__brand-sub">CONNECT</span>
+      </a>
+
+      <div class="cp-nav__breadcrumb" aria-label="Breadcrumb">
+        <a href="/index.html">Home</a>
+        <span class="cp-nav__breadcrumb-sep">›</span>
+        <a href="../dashboard/index.html">Creators</a>
+        <span class="cp-nav__breadcrumb-sep">›</span>
+        <span class="cp-nav__breadcrumb-current" id="cp-breadcrumb-name">creator_2</span>
+      </div>
+
+      <div class="cp-nav__right">
+        <a href="../dashboard/index.html" class="cp-nav__back" id="btn-back-to-creators">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          All Creators
+        </a>
+      </div>
+    </nav>
+
+    <!-- MAIN PAGE -->
+    <main class="cp-page" id="cp-main">
+
+      <!-- COVER BANNER -->
+      <div class="cp-cover cp-cover--cinematic" aria-hidden="true">
+        <div class="cp-cover__pattern"></div>
+        <span class="cp-cover__cat-tag">Aerial &amp; Cinematic Filmmaker</span>
+      </div>
+
+      <div class="cp-container">
+
+        <!-- PROFILE HEADER -->
+        <header class="cp-profile-header" aria-labelledby="cp-creator-name">
+          <div class="cp-profile-header__inner">
+
+            <!-- Avatar -->
+            <div class="cp-avatar-wrap">
+              <img
+                id="cp-avatar"
+                class="cp-avatar"
+                src="https://res.cloudinary.com/gchwcnsd/image/upload/v1790803801/hfbktcjh89yqe1oqpvsj.png"
+                alt="Ashish avatar"
+                width="104" height="104"
+                loading="eager"
+              />
+              <span class="cp-verified-badge" title="Verified Creator">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+            </div>
+
+            <!-- Meta -->
+            <div class="cp-profile-header__meta">
+              <div class="cp-profile-header__name-row">
+                <h1 class="cp-profile-header__name" id="cp-creator-name">Ashish</h1>
+                <span class="cp-verified-label">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  Verified
+                </span>
+                <span class="cp-featured-label">⭐ Featured</span>
+              </div>
+              <p class="cp-profile-header__handle" id="cp-creator-handle">@creator_2</p>
+              <p class="cp-profile-header__category" id="cp-creator-category">Aerial &amp; Cinematic Filmmaker</p>
+            </div>
+
+            <!-- Actions -->
+            <div class="cp-profile-header__actions">
+              <button type="button" id="cp-btn-share" class="cp-btn-share">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Share
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- TWO-COLUMN LAYOUT -->
+        <div class="cp-layout">
+
+          <!-- ================== SIDEBAR ================== -->
+          <aside class="cp-sidebar">
+
+            <!-- Bio Card -->
+            <div class="cp-card">
+              <h2 class="cp-card__title">About</h2>
+              <p class="cp-bio-text" id="cp-creator-bio">
+                Aerial and nature cinematographer capturing the vast canyon corridors, sunlit river valleys, and untamed woodlands of Sonbhadra.
+              </p>
+            </div>
+
+            <!-- Info Card -->
+            <div class="cp-card">
+              <h2 class="cp-card__title">Details</h2>
+              <ul class="cp-info-list">
+                <li class="cp-info-list__item">
+                  <span class="cp-info-list__icon" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </span>
+                  <div>
+                    <span class="cp-info-list__label">Creator Role</span>
+                    <span class="cp-info-list__val" id="cp-creator-role">Community Guide</span>
+                  </div>
+                </li>
+                <li class="cp-info-list__item">
+                  <span class="cp-info-list__icon" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                  </span>
+                  <div>
+                    <span class="cp-info-list__label">Platform</span>
+                    <span class="cp-info-list__val">SonbhadraConnect</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Areas Covered Card -->
+            <div class="cp-card" id="cp-areas-card">
+              <h2 class="cp-card__title">Areas Covered</h2>
+              <div class="cp-areas-list" id="cp-areas-list">
+                <span class="cp-area-tag">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Chopan &amp; Son River Valley
+                </span>
+              </div>
+            </div>
+
+            <!-- Social Links Card -->
+            <div class="cp-card" id="cp-social-card">
+              <h2 class="cp-card__title">Connect</h2>
+              <div class="cp-social-list" id="cp-social-list">
+                <p style="font-size:0.84rem;color:#566860;margin:0;">No social links added yet.</p>
+              </div>
+            </div>
+
+            <!-- Hire CTA -->
+            <div class="cp-hire-card">
+              <h2 class="cp-hire-card__title">Commission a film?</h2>
+              <p class="cp-hire-card__desc">Book Ashish for aerial drone sessions, cinematic reels, or drone-assisted destination footage.</p>
+              <a href="/src/app/tourists/bookNow.html" class="cp-btn-hire" id="cp-btn-hire">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Book Now
+              </a>
+            </div>
+
+          </aside>
+
+          <!-- ================== MAIN CONTENT ================== -->
+          <div class="cp-main">
+
+            <!-- Stats Row -->
+            <div class="cp-stats-row" role="list" aria-label="Creator statistics">
+              <div class="cp-stat-card" role="listitem">
+                <span class="cp-stat-card__icon" aria-hidden="true">🎬</span>
+                <span class="cp-stat-card__val" id="cp-stat-posts">—</span>
+                <span class="cp-stat-card__label">Published Films</span>
+              </div>
+              <div class="cp-stat-card" role="listitem">
+                <span class="cp-stat-card__icon" aria-hidden="true">👁️</span>
+                <span class="cp-stat-card__val" id="cp-stat-views">—</span>
+                <span class="cp-stat-card__label">Total Views</span>
+              </div>
+              <div class="cp-stat-card" role="listitem">
+                <span class="cp-stat-card__icon" aria-hidden="true">❤️</span>
+                <span class="cp-stat-card__val" id="cp-stat-likes">—</span>
+                <span class="cp-stat-card__label">Community Likes</span>
+              </div>
+            </div>
+
+            <!-- Specialties -->
+            <div class="cp-card">
+              <h2 class="cp-card__title">Specialties</h2>
+              <div class="cp-specialties">
+                <span class="cp-specialty-tag">🚁 Drone Cinematography</span>
+                <span class="cp-specialty-tag">🌄 Aerial Photography</span>
+                <span class="cp-specialty-tag">🎬 Travel Films</span>
+                <span class="cp-specialty-tag">🌊 River Valley Shoots</span>
+                <span class="cp-specialty-tag">🏔️ Canyon Reels</span>
+              </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="cp-stories-section">
+              <div class="cp-stories-section__header">
+                <h2 class="cp-stories-section__title">Published Films &amp; Reels</h2>
+                <span class="cp-stories-section__count" id="cp-stories-count">0 stories</span>
+              </div>
+              <div class="cp-content-empty" id="cp-content-area">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                <p>No published films yet. Check back soon!</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BACK STRIP -->
+        <div class="cp-back-strip">
+          <a href="../dashboard/index.html" class="cp-back-link" id="link-back-creators">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to all creators
+          </a>
+        </div>
+
+      </div>
+    </main>
+
+    <script type="module">
+      import { init } from './creator-profile.js';
+      init('creator_2');
+    </script>
+  </body>
+</html>

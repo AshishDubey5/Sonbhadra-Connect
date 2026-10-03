@@ -1,0 +1,33 @@
+/* ==========================================================================
+   UTILITY HELPERS
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-sunset { color: var(--color-sunset); }
+.text-leaf { color: var(--color-leaf-light); }
+.text-river { color: var(--color-river-light); }
+.text-muted { color: var(--color-text-muted); }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }

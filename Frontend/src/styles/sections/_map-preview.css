@@ -1,0 +1,84 @@
+/* ==========================================================================
+   EXPLORATION MAP PREVIEW (Interactive Region Exploration Teaser)
+   ========================================================================== */
+
+.map-preview-section {
+  background-color: var(--color-cream-light);
+  position: relative;
+}
+
+.map-preview-card {
+  position: relative;
+  background: var(--color-forest-deep);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(18, 30, 25, 0.1);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  color: var(--color-cream);
+}
+
+.map-preview-card__bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  background-image: radial-gradient(circle at 70% 40%, rgba(42, 111, 151, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 30% 80%, rgba(45, 106, 79, 0.5) 0%, transparent 60%);
+  background-size: cover;
+  pointer-events: none;
+}
+
+.map-preview-card__header {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.map-pins-container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+}
+
+.map-pin-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.map-pin-pill:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-sunset);
+  transform: translateY(-3px);
+}
+
+.map-pin-pill__icon {
+  color: var(--color-sunset);
+  flex-shrink: 0;
+}
+
+.map-pin-pill__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.map-pin-pill__meta {
+  font-family: var(--font-meta);
+  font-size: 0.6875rem;
+  color: var(--color-text-light-muted);
+}

@@ -1,0 +1,18 @@
+{
+  "rewrites": [
+    {
+      "source": "/stories/:slug((?!index\\.html|story-detail\\.html)[^/]+)",
+      "destination": "/src/app/stories/story-detail.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/src/styles/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+    },
+    {
+      "source": "/public/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, immutable" }]
+    }
+  ]
+}

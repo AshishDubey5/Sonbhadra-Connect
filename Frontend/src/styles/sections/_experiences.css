@@ -1,0 +1,115 @@
+/* ==========================================================================
+   TRAVEL EXPERIENCES & THEMATIC CATEGORIES
+   ========================================================================== */
+
+.experiences-section {
+  background-color: var(--color-cream);
+  position: relative;
+}
+
+.experiences-grid {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--space-md);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sunset) rgba(0, 0, 0, 0.08);
+}
+
+.experiences-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.experiences-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+}
+
+.experiences-grid::-webkit-scrollbar-thumb {
+  background: var(--color-sunset);
+  border-radius: 3px;
+}
+
+.experience-card {
+  position: relative;
+  min-width: 280px;
+  max-width: 320px;
+  flex: 0 0 auto;
+  height: 360px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-lg);
+  color: var(--color-white);
+  border: 1px solid rgba(18, 30, 25, 0.08);
+  transition: all var(--transition-base);
+  scroll-snap-align: start;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.experience-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.experience-card__bg img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.experience-card:hover .experience-card__bg img {
+  transform: scale(1.08);
+}
+
+.experience-card__gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(8, 20, 15, 0.9) 0%,
+    rgba(8, 20, 15, 0.3) 60%,
+    transparent 100%
+  );
+}
+
+.experience-card__content {
+  position: relative;
+  z-index: 3;
+}
+
+.experience-card__count {
+  font-family: var(--font-meta);
+  font-size: var(--text-xs);
+  color: var(--color-sunset);
+  margin-bottom: 4px;
+}
+
+.experience-card__title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-white);
+  margin-bottom: 4px;
+}
+
+.experience-card__desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-light-secondary);
+  line-height: 1.4;
+}

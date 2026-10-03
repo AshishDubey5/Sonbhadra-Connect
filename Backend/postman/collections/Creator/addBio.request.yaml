@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:4242/api/v1/creators/add-bio
+method: POST
+body:
+  type: json
+  content: "{\r\n    \"bio\": \"wdhugf\"\r\n}"
+order: 4491530681536436

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="creatorBg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8D6E63" />
+      <stop offset="100%" stop-color="#3E2723" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#creatorBg3)" />
+  <circle cx="300" cy="220" r="100" fill="#A1887F" />
+  <ellipse cx="300" cy="460" rx="190" ry="150" fill="#A1887F" />
+  <!-- Pillar / Heritage Icon -->
+  <circle cx="300" cy="300" r="50" fill="#F4A261" opacity="0.9" />
+  <polygon points="290,320 300,270 310,320" fill="#3E2723" />
+  <text x="300" y="540" text-anchor="middle" fill="#FFFFFF" font-family="'Space Grotesk', monospace" font-size="22" font-weight="700">VINDHYA HERITAGE</text>
+  <text x="300" y="570" text-anchor="middle" fill="#F4A261" font-family="'Space Grotesk', monospace" font-size="14">HISTORICAL RESEARCHER</text>
+</svg>

@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:4242/api/v1/creators/covering-city
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"coveringCity\": \"dam\"\r
+
+    }"
+order: 4464911823649626

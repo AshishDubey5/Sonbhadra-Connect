@@ -1,0 +1,57 @@
+$kind: http-request
+url: http://localhost:4242/api/v1/creators/register
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: creatorName
+      value: John Doe
+      disabled: false
+    - type: text
+      key: email
+      value: ashish@5776
+      description: ""
+      disabled: false
+    - type: text
+      key: fullName
+      value: Ashish Dubey
+      description: ""
+      disabled: false
+    - type: text
+      key: password
+      value: "123456"
+      description: ""
+      disabled: false
+    - type: text
+      key: phone
+      value: "8423015776"
+      description: ""
+      disabled: false
+    - type: text
+      key: coveringCity
+      value: renukoot
+      description: ""
+      disabled: false
+    - type: text
+      key: bio
+      value: i am ashish dubey
+      description: ""
+      disabled: false
+    - type: text
+      key: address
+      value: pipri sonbhadra
+      description: ""
+      disabled: false
+    - type: text
+      key: socialLinks
+      value: "@insta, @facebook"
+      description: ""
+      disabled: false
+    - type: file
+      key: avatar
+      src:
+        - /C:/Users/Ashish/Pictures/Screenshots/Screenshot 2026-09-16 235728.png
+      description: ""
+      disabled: false
+order: 1789584515451

@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Tourist Dashboard — SonbhadraConnect</title>
+    <meta
+      name="description"
+      content="Personalized tourist dashboard on SonbhadraConnect. View your travel profile, upcoming guided journeys, saved destinations, and eco-points rewards."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body class="tourist-dashboard-page">
+    <!-- Toast Container -->
+    <div id="toast-container" class="td-toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Top Navigation Header -->
+    <header class="td-header">
+      <div class="td-header__inner">
+        <a href="/index.html" class="td-brand" aria-label="SonbhadraConnect Home">
+          <span class="td-brand__title">SONBHADRA</span>
+          <span class="td-brand__tag">CONNECT HUB</span>
+        </a>
+
+        <!-- Quick Site Navigation -->
+        <nav class="td-nav-links" aria-label="Site Navigation">
+          <a href="/src/app/destinations/index.html" class="td-nav-link">Destinations</a>
+          <a href="/src/app/stories/index.html" class="td-nav-link">Stories</a>
+          <a href="/index.html#creators" class="td-nav-link">Local Guides</a>
+          <a href="/index.html#map-preview" class="td-nav-link">Explore Map</a>
+        </nav>
+
+        <!-- Tourist Top Menu / Profile -->
+        <div class="td-user-actions">
+          <div class="td-user-dropdown" id="tdUserDropdown">
+            <button
+              type="button"
+              class="td-user-btn"
+              id="tdUserBtn"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <div class="td-user-avatar-wrap">
+                <img
+                  id="header-avatar"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                  alt="Tourist Avatar"
+                  class="td-user-avatar"
+                />
+                <span class="td-user-initials is-hidden" id="header-initials">T</span>
+              </div>
+              <span class="td-user-name" id="header-name">Loading...</span>
+              <svg class="td-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="td-dropdown-menu" id="tdDropdownMenu">
+              <div class="td-dropdown-header">
+                <strong id="dropdown-fullname">Explorer</strong>
+                <span id="dropdown-email">explorer@sonbhadra.org</span>
+              </div>
+              <hr class="td-dropdown-divider" />
+              <button type="button" class="td-dropdown-item" data-tab-trigger="overview">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Dashboard Home</span>
+              </button>
+              <button type="button" class="td-dropdown-item" data-tab-trigger="profile">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Edit Profile</span>
+              </button>
+              <button type="button" class="td-dropdown-item" data-tab-trigger="bookings">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span>My Bookings</span>
+              </button>
+              <button type="button" class="td-dropdown-item" data-tab-trigger="wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Saved Wishlist</span>
+              </button>
+              <hr class="td-dropdown-divider" />
+              <button type="button" class="td-dropdown-item td-dropdown-item--logout" id="dropdown-logout-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Log Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="td-main">
+      <div class="td-container">
+
+        <!-- =====================================================
+             1. PERSONALIZED HERO BANNER
+             ===================================================== -->
+        <section class="td-hero-card" aria-label="Personal Welcome">
+          <div class="td-hero-backdrop"></div>
+          <div class="td-hero-content">
+            <div class="td-hero-profile">
+              <div class="td-hero-avatar-wrap">
+                <img
+                  id="hero-avatar"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                  alt="Profile Avatar"
+                  class="td-hero-avatar"
+                />
+                <span class="td-hero-initials is-hidden" id="hero-initials">T</span>
+                <button
+                  type="button"
+                  class="td-hero-avatar-btn"
+                  id="hero-change-photo-btn"
+                  title="Change Profile Photo"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="td-hero-info">
+                <div class="td-hero-badges">
+                  <span class="td-tier-badge" id="hero-tier-badge">🌿 Eco Explorer • Tier 1</span>
+                  <span class="td-status-badge">
+                    <span class="td-status-dot"></span> Active Tourist
+                  </span>
+                </div>
+                <h1 class="td-hero-title" id="hero-greeting">
+                  Welcome to Sonbhadra, <span id="hero-name">Explorer</span>! 🌄
+                </h1>
+                <p class="td-hero-meta">
+                  <span id="hero-hometown-wrap">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span id="hero-hometown">Hometown: Not set</span>
+                  </span>
+                  <span>•</span>
+                  <span id="hero-email-wrap">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    <span id="hero-email">tourist@example.com</span>
+                  </span>
+                  <span>•</span>
+                  <span id="hero-joined-wrap">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span id="hero-joined">Member since 2026</span>
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="td-hero-actions">
+              <button type="button" class="td-btn td-btn--primary" id="hero-edit-profile-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                <span>Edit Profile</span>
+              </button>
+              <a href="/src/app/destinations/index.html" class="td-btn td-btn--outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Plan a Journey</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             2. PERSONALIZED STATS STRIP
+             ===================================================== -->
+        <section class="td-stats-grid" aria-label="Personalized Statistics">
+          <div class="td-stat-card">
+            <div class="td-stat-icon td-stat-icon--emerald">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div class="td-stat-data">
+              <span class="td-stat-value" id="stat-eco-points">0</span>
+              <span class="td-stat-label">Eco-Points Earned</span>
+            </div>
+            <span class="td-stat-tag">🌿 Rewards Active</span>
+          </div>
+
+          <div class="td-stat-card">
+            <div class="td-stat-icon td-stat-icon--amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <div class="td-stat-data">
+              <span class="td-stat-value" id="stat-bookings">0</span>
+              <span class="td-stat-label">Journeys Booked</span>
+            </div>
+            <span class="td-stat-tag">🧭 Guided Treks</span>
+          </div>
+
+          <div class="td-stat-card">
+            <div class="td-stat-icon td-stat-icon--rose">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+            <div class="td-stat-data">
+              <span class="td-stat-value" id="stat-wishlist">0</span>
+              <span class="td-stat-label">Saved Wishlist</span>
+            </div>
+            <span class="td-stat-tag">⭐ Bucket List</span>
+          </div>
+
+          <div class="td-stat-card">
+            <div class="td-stat-icon td-stat-icon--cyan">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <div class="td-stat-data">
+              <span class="td-stat-value">100%</span>
+              <span class="td-stat-label">Eco-Pledge Verified</span>
+            </div>
+            <span class="td-stat-tag">✨ Leave No Trace</span>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             3. DASHBOARD MAIN TABS
+             ===================================================== -->
+        <div class="td-tabs-bar" role="tablist" aria-label="Dashboard views">
+          <button
+            type="button"
+            class="td-tab-btn is-active"
+            role="tab"
+            id="tab-btn-overview"
+            aria-selected="true"
+            aria-controls="panel-overview"
+            data-tab="overview"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Overview</span>
+          </button>
+
+          <button
+            type="button"
+            class="td-tab-btn"
+            role="tab"
+            id="tab-btn-bookings"
+            aria-selected="false"
+            aria-controls="panel-bookings"
+            data-tab="bookings"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>My Journeys & Bookings</span>
+            <span class="td-tab-counter" id="tab-counter-bookings">0</span>
+          </button>
+
+          <button
+            type="button"
+            class="td-tab-btn"
+            role="tab"
+            id="tab-btn-wishlist"
+            aria-selected="false"
+            aria-controls="panel-wishlist"
+            data-tab="wishlist"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Saved Wishlist</span>
+            <span class="td-tab-counter" id="tab-counter-wishlist">0</span>
+          </button>
+
+          <button
+            type="button"
+            class="td-tab-btn"
+            role="tab"
+            id="tab-btn-profile"
+            aria-selected="false"
+            aria-controls="panel-profile"
+            data-tab="profile"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Personal Profile & Details</span>
+          </button>
+        </div>
+
+        <!-- =====================================================
+             PANEL 1: OVERVIEW
+             ===================================================== -->
+        <section
+          class="td-panel is-active"
+          id="panel-overview"
+          role="tabpanel"
+          aria-labelledby="tab-btn-overview"
+        >
+          <div class="td-overview-layout">
+            <!-- Left Column: Profile Card & Eco Status -->
+            <div class="td-overview-col">
+              <!-- Personalized Profile Card -->
+              <div class="td-card">
+                <div class="td-card__header">
+                  <h3 class="td-card__title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Tourist Identity Details
+                  </h3>
+                  <button type="button" class="td-link-btn" id="ov-edit-profile-link">Edit Details</button>
+                </div>
+                <div class="td-card__body">
+                  <div class="td-profile-list">
+                    <div class="td-profile-row">
+                      <span class="td-profile-label">Full Name</span>
+                      <strong class="td-profile-val" id="ov-fullname">—</strong>
+                    </div>
+                    <div class="td-profile-row">
+                      <span class="td-profile-label">Email Address</span>
+                      <strong class="td-profile-val" id="ov-email">—</strong>
+                    </div>
+                    <div class="td-profile-row">
+                      <span class="td-profile-label">Phone Number</span>
+                      <strong class="td-profile-val" id="ov-phone">Not specified</strong>
+                    </div>
+                    <div class="td-profile-row">
+                      <span class="td-profile-label">Hometown / City</span>
+                      <strong class="td-profile-val" id="ov-hometown">Not specified</strong>
+                    </div>
+                    <div class="td-profile-row">
+                      <span class="td-profile-label">Account Status</span>
+                      <span class="td-status-badge td-status-badge--success">
+                        <span class="td-status-dot"></span> Active & Verified
+                      </span>
+                    </div>
+                    <div class="td-profile-row">
+                      <span class="td-profile-label">Eco-Score</span>
+                      <span class="td-points-pill" id="ov-points-pill">0 Points</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Eco-Points Rewards Card -->
+              <div class="td-card td-card--eco">
+                <div class="td-card__header">
+                  <h3 class="td-card__title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    Eco-Tourism Rewards
+                  </h3>
+                  <span class="td-points-highlight" id="ov-points-big">0 PTS</span>
+                </div>
+                <div class="td-card__body">
+                  <p class="td-eco-desc">
+                    You earn <strong>50 Eco-Points</strong> each time you book a certified native creator or complete a clean trail in Sonbhadra.
+                  </p>
+                  <div class="td-progress-wrap">
+                    <div class="td-progress-header">
+                      <span>Tier 1 Explorer</span>
+                      <span id="ov-tier-next">Next Tier at 200 PTS</span>
+                    </div>
+                    <div class="td-progress-bar">
+                      <div class="td-progress-fill" id="ov-progress-fill" style="width: 15%;"></div>
+                    </div>
+                  </div>
+                  <div class="td-perks-list">
+                    <div class="td-perk-item">
+                      <span class="td-perk-icon">✓</span>
+                      <span>Complimentary tea with village panchayat guides</span>
+                    </div>
+                    <div class="td-perk-item">
+                      <span class="td-perk-icon">✓</span>
+                      <span>Priority booking for hidden waterfalls (Lakhaniya Dari)</span>
+                    </div>
+                    <div class="td-perk-item">
+                      <span class="td-perk-icon">★</span>
+                      <span>Unlock 15% discount on boat journeys across Rihand Dam</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Active Journey & Recommendations -->
+            <div class="td-overview-col">
+              <!-- Upcoming Adventure Card -->
+              <div class="td-card">
+                <div class="td-card__header">
+                  <h3 class="td-card__title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                    Active / Upcoming Journey
+                  </h3>
+                  <a href="/src/app/destinations/index.html" class="td-link-btn">Browse All</a>
+                </div>
+                <div class="td-card__body" id="ov-journey-container">
+                  <!-- Empty Journey State -->
+                  <div class="td-empty-box">
+                    <div class="td-empty-icon">🎒</div>
+                    <h4>No Active Bookings Right Now</h4>
+                    <p>
+                      Ready to dive into the virgin waterfalls and 5th-century citadels of Sonbhadra? Discover curated routes led by native creators.
+                    </p>
+                    <a href="/src/app/destinations/index.html" class="td-btn td-btn--primary">
+                      Explore Destinations & Book
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recommended Destinations for You -->
+              <div class="td-card">
+                <div class="td-card__header">
+                  <h3 class="td-card__title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    Personalized Recommendations in Sonbhadra
+                  </h3>
+                </div>
+                <div class="td-card__body">
+                  <div class="td-recs-grid" id="ov-recommendations-grid">
+                    <!-- Populated via JS -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             PANEL 2: MY JOURNEYS & BOOKINGS
+             ===================================================== -->
+        <section
+          class="td-panel"
+          id="panel-bookings"
+          role="tabpanel"
+          aria-labelledby="tab-btn-bookings"
+        >
+          <div class="td-panel-header">
+            <div>
+              <h2 class="td-panel-title">My Guided Journeys & Bookings</h2>
+              <p class="td-panel-sub">
+                View your confirmed itineraries, meeting points, and creator guides.
+              </p>
+            </div>
+            <a href="/src/app/destinations/index.html" class="td-btn td-btn--primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Book New Journey</span>
+            </a>
+          </div>
+
+          <div id="bookings-list-container" class="td-bookings-list">
+            <!-- Populated via JS -->
+          </div>
+        </section>
+
+        <!-- =====================================================
+             PANEL 3: SAVED WISHLIST
+             ===================================================== -->
+        <section
+          class="td-panel"
+          id="panel-wishlist"
+          role="tabpanel"
+          aria-labelledby="tab-btn-wishlist"
+        >
+          <div class="td-panel-header">
+            <div>
+              <h2 class="td-panel-title">Saved Wishlist & Dream Spots</h2>
+              <p class="td-panel-sub">
+                Your personal collection of Sonbhadra’s finest waterfalls, forts, and prehistoric sights.
+              </p>
+            </div>
+            <a href="/src/app/destinations/index.html" class="td-btn td-btn--outline">
+              <span>Explore More Places</span>
+            </a>
+          </div>
+
+          <div id="wishlist-grid-container" class="td-wishlist-grid">
+            <!-- Populated via JS -->
+          </div>
+        </section>
+
+        <!-- =====================================================
+             PANEL 4: PERSONAL PROFILE & SECURITY
+             ===================================================== -->
+        <section
+          class="td-panel"
+          id="panel-profile"
+          role="tabpanel"
+          aria-labelledby="tab-btn-profile"
+        >
+          <div class="td-panel-header">
+            <div>
+              <h2 class="td-panel-title">Personal Tourist Profile</h2>
+              <p class="td-panel-sub">
+                Keep your details updated for personalized itineraries, emergency contacts, and guide coordination.
+              </p>
+            </div>
+          </div>
+
+          <div class="td-profile-grid">
+            <!-- Left: Profile Details Form -->
+            <div class="td-card">
+              <div class="td-card__header">
+                <h3 class="td-card__title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  Update Personal Information
+                </h3>
+              </div>
+              <div class="td-card__body">
+                <form id="edit-profile-form" class="td-form" novalidate>
+                  <div class="td-form-group">
+                    <label for="edit-fullname" class="td-label">Full Name</label>
+                    <input
+                      type="text"
+                      id="edit-fullname"
+                      name="fullName"
+                      class="td-input"
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+
+                  <div class="td-form-group">
+                    <label for="edit-email" class="td-label">Email Address (Registered)</label>
+                    <input
+                      type="email"
+                      id="edit-email"
+                      class="td-input td-input--readonly"
+                      readonly
+                      disabled
+                    />
+                    <small class="td-hint">Email is linked to your account and cannot be modified.</small>
+                  </div>
+
+                  <div class="td-form-row">
+                    <div class="td-form-group">
+                      <label for="edit-phone" class="td-label">Phone / WhatsApp</label>
+                      <input
+                        type="tel"
+                        id="edit-phone"
+                        name="phone"
+                        class="td-input"
+                        placeholder="+91 98765 43210"
+                      />
+                    </div>
+
+                    <div class="td-form-group">
+                      <label for="edit-hometown" class="td-label">Hometown / City</label>
+                      <input
+                        type="text"
+                        id="edit-hometown"
+                        name="hometown"
+                        class="td-input"
+                        placeholder="e.g. Lucknow, Varanasi"
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="td-btn td-btn--primary" id="save-profile-btn">
+                    <span>Save Profile Changes</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Right: Avatar & Password Changes -->
+            <div class="td-profile-right-col">
+              <!-- Avatar Upload Card -->
+              <div class="td-card">
+                <div class="td-card__header">
+                  <h3 class="td-card__title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    Profile Avatar
+                  </h3>
+                </div>
+                <div class="td-card__body">
+                  <div class="td-avatar-edit-box">
+                    <div class="td-avatar-preview-lg">
+                      <img
+                        id="avatar-edit-preview"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                        alt="Profile avatar"
+                      />
+                      <span class="td-avatar-initials-lg is-hidden" id="avatar-edit-initials">T</span>
+                    </div>
+                    <div class="td-avatar-edit-actions">
+                      <label for="avatar-file-input" class="td-btn td-btn--outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        <span>Choose New Photo</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="avatar-file-input"
+                        accept="image/png, image/jpeg, image/webp"
+                        class="is-visually-hidden"
+                      />
+                      <button
+                        type="button"
+                        class="td-btn td-btn--primary is-hidden"
+                        id="avatar-upload-confirm-btn"
+                      >
+                        Upload & Save Photo
+                      </button>
+                      <span class="td-hint">JPG, PNG or WebP. Under 5MB.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Change Password Card -->
+              <div class="td-card">
+                <div class="td-card__header">
+                  <h3 class="td-card__title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Security & Password
+                  </h3>
+                </div>
+                <div class="td-card__body">
+                  <form id="change-pwd-form" class="td-form" novalidate>
+                    <div class="td-form-group">
+                      <label for="pwd-old" class="td-label">Current Password</label>
+                      <input
+                        type="password"
+                        id="pwd-old"
+                        class="td-input"
+                        placeholder="Enter current password"
+                        required
+                      />
+                    </div>
+                    <div class="td-form-group">
+                      <label for="pwd-new" class="td-label">New Password</label>
+                      <input
+                        type="password"
+                        id="pwd-new"
+                        class="td-input"
+                        placeholder="At least 8 characters"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="td-btn td-btn--outline" id="change-pwd-btn">
+                      <span>Update Password</span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Global Edit Profile Modal (quick access) -->
+    <div class="td-modal" id="quick-edit-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="td-modal__backdrop" id="modal-backdrop"></div>
+      <div class="td-modal__content">
+        <div class="td-modal__header">
+          <h3 class="td-modal__title">Edit Your Tourist Details</h3>
+          <button type="button" class="td-modal__close" id="modal-close-btn" aria-label="Close modal">✕</button>
+        </div>
+        <form id="modal-edit-form" class="td-form">
+          <div class="td-form-group">
+            <label for="modal-fullname" class="td-label">Full Name</label>
+            <input type="text" id="modal-fullname" class="td-input" required />
+          </div>
+          <div class="td-form-group">
+            <label for="modal-phone" class="td-label">Phone Number</label>
+            <input type="tel" id="modal-phone" class="td-input" placeholder="+91 98765 43210" />
+          </div>
+          <div class="td-form-group">
+            <label for="modal-hometown" class="td-label">Hometown / City</label>
+            <input type="text" id="modal-hometown" class="td-input" placeholder="e.g. Lucknow, Varanasi" />
+          </div>
+          <div class="td-modal__actions">
+            <button type="button" class="td-btn td-btn--outline" id="modal-cancel-btn">Cancel</button>
+            <button type="submit" class="td-btn td-btn--primary" id="modal-save-btn">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Script Module -->
+    <script type="module" src="./dashboard.js"></script>
+  </body>
+</html>

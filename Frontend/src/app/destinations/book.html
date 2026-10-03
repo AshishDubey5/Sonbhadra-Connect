@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Your Journey — sonbhadraconnect.com</title>
+    <meta
+      name="description"
+      content="Securely book your guided expedition with certified local guides and creators in Sonbhadra, Uttar Pradesh on sonbhadraconnect.com."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/sections/_booking.css" />
+  </head>
+  <body class="booking-page">
+    <!-- Top Announcement Bar (matching reference screenshot) -->
+    <div class="booking-alert-bar">
+      <span>Sign in to enjoy preferential member policies such as eco-points and community discounts.</span>
+      <a href="../index.html#creator-cta">Sign In</a>
+      <span>|</span>
+      <a href="../index.html#creator-cta">Sign Up</a>
+    </div>
+
+    <!-- Header -->
+    <header class="booking-header" role="banner">
+      <div class="container">
+        <div class="booking-header__nav">
+          <a href="../index.html" class="brand" aria-label="sonbhadraconnect.com Homepage">
+            <span class="brand__title">SONBHADRA</span>
+            <span class="brand__tagline">CONNECT</span>
+          </a>
+
+          <a href="./index.html" class="booking-back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            Back to Destinations
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Booking Form -->
+    <main class="booking-main" id="mainContent">
+      <div class="container">
+        <!-- Tour Banner Header -->
+        <div class="booking-tour-banner">
+          <div class="booking-tour-banner__title-wrap">
+            <span class="booking-tour-banner__tag">Check Out &amp; Fill Order Information</span>
+            <h1 class="booking-tour-banner__title" id="tourBannerTitle">Lakhaniya Dari Falls &amp; Canyon Expedition</h1>
+            <span class="booking-tour-banner__loc" id="tourBannerLoc">Near Ahraura / Robertsganj, Sonbhadra</span>
+          </div>
+
+          <div class="booking-tour-banner__price-tag">
+            <span class="booking-tour-banner__price-label">Starting From</span>
+            <span class="booking-tour-banner__price-val" id="bannerPriceVal">₹1,499</span>
+          </div>
+        </div>
+
+        <form id="bookingForm" novalidate>
+          <div class="booking-grid">
+            <!-- LEFT COLUMN: Form Inputs -->
+            <div class="booking-left-col">
+              <!-- Section 1: Trip Schedule & Destination -->
+              <div class="booking-card">
+                <div class="booking-card__header">
+                  <h2 class="booking-card__title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    1. Journey Dates &amp; Destination
+                  </h2>
+                </div>
+
+                <div class="form-row form-row--3">
+                  <div class="form-group">
+                    <label for="destSelect" class="form-label form-label--required">Select Destination</label>
+                    <select id="destSelect" class="form-select">
+                      <option value="lakhaniya-dari">Lakhaniya Dari Falls</option>
+                      <option value="rihand-dam">Govind Ballabh Pant Sagar (Rihand Dam)</option>
+                      <option value="vijaygarh-fort">Vijaygarh Fort</option>
+                      <option value="agori-fort">Agori Fort (River Confluence)</option>
+                      <option value="mukha-falls">Mukha Waterfalls</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="startDate" class="form-label form-label--required">Start Date</label>
+                    <input type="date" id="startDate" class="form-input" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="endDate" class="form-label form-label--required">End Date</label>
+                    <input type="date" id="endDate" class="form-input" required />
+                  </div>
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="form-group">
+                    <label for="travelersCount" class="form-label form-label--required">Number of Travelers (Adults)</label>
+                    <input type="number" id="travelersCount" class="form-input" min="1" max="20" value="1" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Trip Type</label>
+                    <input type="text" class="form-input" value="Guided Eco-Expedition" readonly />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 2: Traveller Details -->
+              <div class="booking-card">
+                <div class="booking-card__header">
+                  <h2 class="booking-card__title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    2. Traveller Details
+                  </h2>
+                  <span class="booking-card__subtitle">Type information as on your Govt ID or Passport</span>
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="form-group">
+                    <label for="givenName" class="form-label form-label--required">Given Name</label>
+                    <input type="text" id="givenName" class="form-input" placeholder="e.g. Rahul" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" id="surname" class="form-input" placeholder="e.g. Verma" />
+                  </div>
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="form-group">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="date" id="dob" class="form-input" />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label form-label--required">Gender</label>
+                    <div class="radio-group">
+                      <label class="radio-label">
+                        <input type="radio" name="gender" value="Male" checked /> Male
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" name="gender" value="Female" /> Female
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" name="gender" value="Other" /> Other
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="form-group">
+                    <label for="nationality" class="form-label form-label--required">Nationality</label>
+                    <select id="nationality" class="form-select">
+                      <option value="India" selected>India (Domestic)</option>
+                      <option value="United States">United States</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="France">France</option>
+                      <option value="Germany">Germany</option>
+                      <option value="Australia">Australia</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Japan">Japan</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="idNumber" class="form-label">Aadhaar / Passport / Voter ID No.</label>
+                    <input type="text" id="idNumber" class="form-input" placeholder="Govt ID No." />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 3: Contact Details -->
+              <div class="booking-card">
+                <div class="booking-card__header">
+                  <h2 class="booking-card__title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    3. Order Contact Information
+                  </h2>
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="form-group">
+                    <label for="contactPhone" class="form-label form-label--required">Mobile Number</label>
+                    <div class="phone-combo">
+                      <select class="form-select" id="countryCode">
+                        <option value="+91">🇮🇳 India (+91)</option>
+                        <option value="+1">🇺🇸 US (+1)</option>
+                        <option value="+44">🇬🇧 UK (+44)</option>
+                        <option value="+61">🇦🇺 AU (+61)</option>
+                        <option value="+49">🇩🇪 DE (+49)</option>
+                        <option value="+33">🇫🇷 FR (+33)</option>
+                      </select>
+                      <input type="tel" id="contactPhone" class="form-input" placeholder="e.g. 9876543210" required />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="form-label form-label--required">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="e.g. rahul@example.com" required />
+                    <small style="color: var(--color-text-light-muted); font-size: 0.76rem;">E-ticket and expedition updates will be sent to this email</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 4: Travel with Creators Addon -->
+              <div class="booking-card">
+                <div class="booking-card__header">
+                  <h2 class="booking-card__title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    4. Travel With Creators Experience
+                  </h2>
+                </div>
+
+                <label class="creator-addon-box">
+                  <input type="checkbox" id="creatorAddonCheckbox" checked />
+                  <div class="creator-addon-content">
+                    <div class="creator-addon-title">
+                      <span>Accompany With Verified Local Creator</span>
+                      <span class="creator-addon-price">+₹750 / person</span>
+                    </div>
+                    <p class="creator-addon-desc">
+                      Travel alongside a verified local storyteller and drone photographer. Includes 4K aerial footage of your expedition, private photography guidance, and indigenous folklore narrations.
+                    </p>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Section 5: Special Requests -->
+              <div class="booking-card">
+                <div class="booking-card__header">
+                  <h2 class="booking-card__title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    5. Special Request (Optional)
+                  </h2>
+                </div>
+
+                <div class="form-group">
+                  <textarea id="specialRequest" class="form-textarea" placeholder="Early pickup, physical accessibility assistance, dietary preferences, photography focus..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Expense Breakdown & Payment -->
+            <div class="booking-right-col">
+              <div class="order-summary-card">
+                <h3 class="order-summary-title">Expense Summary</h3>
+
+                <div class="order-summary-dest">
+                  <img src="../../public/assets/images/destinations/lakhaniya-dari.webp" alt="Destination" class="order-summary-thumb" id="summaryThumb" />
+                  <div class="order-summary-dest-info">
+                    <span class="order-summary-dest-name" id="summaryDestName">Lakhaniya Dari Falls</span>
+                    <span class="order-summary-dest-meta">Certified Local Guide Tour</span>
+                  </div>
+                </div>
+
+                <!-- Expense Breakdown Table (matching user wireframe: "The amount of expense given from the website", "Travell with creators amount") -->
+                <div class="expense-table">
+                  <div class="expense-row">
+                    <span class="expense-row__label" id="baseExpenseLabel">Expedition Package (₹1,499 × 1)</span>
+                    <span class="expense-row__val" id="baseExpenseVal">₹1,499</span>
+                  </div>
+
+                  <div class="expense-row" id="creatorExpenseRow">
+                    <span class="expense-row__label">Travel With Creator Add-on</span>
+                    <span class="expense-row__val" id="creatorExpenseVal">+₹750</span>
+                  </div>
+
+                  <div class="expense-row">
+                    <span class="expense-row__label">Forest Permits &amp; Eco Tax</span>
+                    <span class="expense-row__val" id="permitExpenseVal">₹150</span>
+                  </div>
+
+                  <div class="expense-row expense-row--discount" id="discountExpenseRow" style="display: none;">
+                    <span class="expense-row__label">Coupon Discount</span>
+                    <span class="expense-row__val" id="discountExpenseVal">-₹0</span>
+                  </div>
+                </div>
+
+                <!-- Coupon Code Section (matching user diagram: "Use coupon code") -->
+                <div class="form-group" style="margin-bottom: 16px;">
+                  <label for="couponCodeInput" class="form-label">Have a coupon code?</label>
+                  <div class="coupon-box">
+                    <input type="text" id="couponCodeInput" class="form-input" placeholder="e.g. WELCOME2026" />
+                    <button type="button" id="couponApplyBtn" class="coupon-btn">Apply</button>
+                  </div>
+                  <div id="couponMessage" style="font-size: 0.78rem; font-family: var(--font-meta);"></div>
+                </div>
+
+                <!-- Total Amount Due -->
+                <div class="expense-total">
+                  <div class="expense-total-row">
+                    <span class="expense-total-label">Total Due Amount</span>
+                    <span class="expense-total-val" id="totalDueVal">₹2,399</span>
+                  </div>
+                  <div class="currency-note" id="currencyNote">
+                    ≈ $28.50 USD • €26.00 EUR • £22.20 GBP (indicative conversion)
+                  </div>
+                </div>
+
+                <!-- Payment Button -->
+                <button type="submit" class="booking-pay-btn" id="submitPaymentBtn">
+                  <span>Proceed to Payment</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+
+                <div class="booking-security-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                  <span>100% Verified Local Guides • Free Cancellation (48h)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Confirmation Modal Receipt -->
+    <div class="booking-modal" id="bookingConfirmationModal" role="dialog" aria-hidden="true">
+      <div class="booking-modal__card">
+        <div class="booking-modal__icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+
+        <h2 class="booking-modal__title">Booking Request Confirmed!</h2>
+        <div class="booking-modal__ref" id="receiptRef">Order Ref: SB-2026-94812</div>
+
+        <div class="booking-modal__receipt">
+          <div class="receipt-item">
+            <span class="receipt-item__label">Destination:</span>
+            <span class="receipt-item__val" id="receiptDest">Lakhaniya Dari Falls</span>
+          </div>
+          <div class="receipt-item">
+            <span class="receipt-item__label">Dates &amp; Party:</span>
+            <span class="receipt-item__val" id="receiptDates">Tomorrow (1 traveler)</span>
+          </div>
+          <div class="receipt-item">
+            <span class="receipt-item__label">Lead Traveler:</span>
+            <span class="receipt-item__val" id="receiptCustomer">Rahul Verma (Male, India)</span>
+          </div>
+          <div class="receipt-item">
+            <span class="receipt-item__label">Contact:</span>
+            <span class="receipt-item__val" id="receiptContact">+91 9876543210</span>
+          </div>
+          <div class="receipt-item">
+            <span class="receipt-item__label">Creator Add-on:</span>
+            <span class="receipt-item__val" id="receiptCreator">Yes (Verified Local Creator)</span>
+          </div>
+          <div class="receipt-item" style="border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 8px; margin-top: 4px;">
+            <span class="receipt-item__label" style="font-weight: 700; color: #fff;">Total Paid/Due:</span>
+            <span class="receipt-item__val" id="receiptTotal" style="color: var(--color-sunset); font-size: 1.2rem;">₹2,399</span>
+          </div>
+        </div>
+
+        <p class="booking-modal__note">
+          Your expedition staging is confirmed. A local guide has been notified and will coordinate pickup details via WhatsApp and email. (Static Frontend Prototype — Backend integration ready).
+        </p>
+
+        <div class="booking-modal__actions">
+          <button type="button" class="btn btn--secondary" id="modalPrintBtn">
+            <span>Print / Save Receipt</span>
+          </button>
+          <button type="button" class="btn btn--primary" id="modalCloseBtn">
+            <span>Done</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Script -->
+    <script type="module" src="/src/scripts/booking.js"></script>
+  </body>
+</html>

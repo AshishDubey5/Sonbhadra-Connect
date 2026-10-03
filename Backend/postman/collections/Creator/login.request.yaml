@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:4242/api/v1/creators/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"\",\r
+
+    \    \"creatorName\": \"ashish5\",\r
+
+    \    \"password\": \"12345678\"\r
+
+    }"
+order: 1727900291294929

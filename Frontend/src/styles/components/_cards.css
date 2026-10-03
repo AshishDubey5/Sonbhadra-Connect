@@ -1,0 +1,294 @@
+/* ==========================================================================
+   CARDS (Editorial, Tactile, High-Contrast)
+   ========================================================================== */
+
+/* Base Editorial Card */
+.card {
+  position: relative;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  border: 1px solid rgba(18, 30, 25, 0.06);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Dark Theme Card */
+.card--dark {
+  background-color: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  color: var(--color-cream);
+}
+
+.card--dark:hover {
+  border-color: var(--color-dark-border-hover);
+}
+
+/* Image Wrapper with Subtle Zoom */
+.card__media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-forest-dark);
+}
+
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .card__media img {
+  transform: scale(1.06);
+}
+
+/* Gradient Overlay for Image Text Legibility */
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 20, 15, 0.88) 0%,
+    rgba(8, 20, 15, 0.35) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.card__content {
+  padding: var(--space-md);
+}
+
+/* Destination Feature Card (Large Editorial Display) */
+.dest-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background-color: var(--color-forest-deep);
+  color: var(--color-cream);
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.dest-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(244, 162, 97, 0.4);
+  box-shadow: 0 20px 48px -12px rgba(8, 20, 15, 0.6);
+  z-index: 5;
+}
+
+.dest-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.dest-card__bg img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.dest-card:hover .dest-card__bg img {
+  transform: scale(1.07);
+}
+
+.dest-card__gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(8, 20, 15, 0.95) 0%,
+    rgba(8, 20, 15, 0.5) 45%,
+    rgba(8, 20, 15, 0.1) 80%,
+    transparent 100%
+  );
+}
+
+.dest-card__body {
+  position: relative;
+  z-index: 3;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.dest-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-xs);
+}
+
+.dest-card__title {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: var(--space-2xs);
+  color: var(--color-white);
+}
+
+.dest-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-light-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+  max-width: 48ch;
+}
+
+.dest-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-family: var(--font-meta);
+  font-size: var(--text-xs);
+  color: var(--color-text-light-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: var(--space-sm);
+}
+
+.dest-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dest-card__meta-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-sunset);
+}
+
+/* Creator Profile Card */
+.creator-card {
+  position: relative;
+  background: var(--color-dark-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-dark-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+}
+
+.creator-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(244, 162, 97, 0.35);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.creator-card__header {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.creator-card__header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.creator-card:hover .creator-card__header img {
+  transform: scale(1.08);
+}
+
+.creator-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-dark-surface) 0%, transparent 70%);
+}
+
+.creator-card__category {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+}
+
+.creator-card__verified {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(45, 106, 79, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a7f3d0;
+}
+
+.creator-card__body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.creator-card__name {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-cream);
+  margin-bottom: 2px;
+}
+
+.creator-card__handle {
+  font-family: var(--font-meta);
+  font-size: var(--text-xs);
+  color: var(--color-sunset);
+  margin-bottom: var(--space-xs);
+}
+
+.creator-card__bio {
+  font-size: var(--text-sm);
+  color: var(--color-text-light-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+  flex-grow: 1;
+}
+
+.creator-card__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xs);
+  padding: var(--space-xs) 0;
+  border-top: 1px solid var(--color-dark-border);
+  border-bottom: 1px solid var(--color-dark-border);
+  margin-bottom: var(--space-sm);
+}
+
+.creator-card__stat-val {
+  font-family: var(--font-meta);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-cream);
+}
+
+.creator-card__stat-label {
+  font-size: 0.75rem;
+  color: var(--color-text-light-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.creator-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

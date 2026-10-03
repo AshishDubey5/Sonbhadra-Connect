@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Creator Dashboard — SonbhadraConnect</title>
+    <meta name="description" content="Manage your creator profile, track tourism content metrics, update coverage areas, and showcase Sonbhadra to the world." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body class="dashboard-body">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="dash-toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Mobile Top Navigation Header -->
+    <header class="dash-mobile-header" aria-label="Mobile Dashboard Navigation">
+      <button type="button" id="dash-sidebar-toggle" class="dash-hamburger" aria-label="Toggle navigation drawer" aria-expanded="false">
+        <span class="dash-hamburger__line"></span>
+        <span class="dash-hamburger__line"></span>
+        <span class="dash-hamburger__line"></span>
+      </button>
+
+      <a href="/index.html" class="dash-mobile-brand">
+        <span class="dash-brand-main">SONBHADRA</span>
+        <span class="dash-brand-sub">CREATOR HUB</span>
+      </a>
+
+      <div class="dash-mobile-user">
+        <img id="mobile-user-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Creator Avatar" class="dash-mini-avatar dash-avatar-loading" width="36" height="36" loading="eager" referrerpolicy="no-referrer" />
+      </div>
+    </header>
+
+    <!-- App Shell Layout -->
+    <div class="dash-shell">
+
+      <!-- =========================================================
+           SIDEBAR
+           ========================================================= -->
+      <aside class="dash-sidebar" id="dash-sidebar">
+        <div class="dash-sidebar__backdrop" id="dash-sidebar-backdrop"></div>
+        <div class="dash-sidebar__inner">
+
+          <!-- Brand / Header -->
+          <div class="dash-sidebar__header">
+            <a href="/index.html" class="dash-brand">
+              <span class="dash-brand__mark" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </span>
+              <div class="dash-brand__text">
+                <span class="dash-brand__title">SONBHADRA</span>
+                <span class="dash-brand__tag">CREATOR STUDIO</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Creator Profile Card Widget in Sidebar -->
+          <div class="dash-creator-badge" id="sidebar-creator-badge">
+            <div class="dash-creator-badge__avatar-wrap">
+              <img id="sidebar-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Creator Avatar" class="dash-creator-badge__avatar dash-avatar-loading" width="48" height="48" loading="eager" referrerpolicy="no-referrer" />
+              <span class="dash-creator-badge__status-dot" title="Active Verified Creator"></span>
+            </div>
+            <div class="dash-creator-badge__info">
+              <h4 id="sidebar-fullname" class="dash-creator-badge__name dash-skeleton-text"></h4>
+              <p id="sidebar-handle" class="dash-creator-badge__handle dash-skeleton-text dash-skeleton-text--sm"></p>
+              <div class="dash-creator-badge__city-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="sidebar-city" class="dash-skeleton-text dash-skeleton-text--xs"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <nav class="dash-nav" aria-label="Dashboard Panels">
+            <p class="dash-nav__label">Studio Menu</p>
+            <ul class="dash-nav__list">
+              <li class="dash-nav__item">
+                <button type="button" class="dash-nav__link is-active" data-panel="overview" id="nav-overview">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                  <span>Overview</span>
+                  <span class="dash-nav__indicator" aria-hidden="true"></span>
+                </button>
+              </li>
+              <li class="dash-nav__item">
+                <button type="button" class="dash-nav__link" data-panel="profile" id="nav-profile">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Profile & Identity</span>
+                  <span class="dash-nav__indicator" aria-hidden="true"></span>
+                </button>
+              </li>
+              <li class="dash-nav__item">
+                <button type="button" class="dash-nav__link" data-panel="content" id="nav-content">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                  <span>My Content</span>
+                  <span class="dash-nav__indicator" aria-hidden="true"></span>
+                </button>
+              </li>
+              <li class="dash-nav__item">
+                <button type="button" class="dash-nav__link" data-panel="destinations" id="nav-destinations">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                  <span>Destinations</span>
+                  <span class="dash-nav__indicator" aria-hidden="true"></span>
+                </button>
+              </li>
+              <li class="dash-nav__item">
+                <button type="button" class="dash-nav__link" data-panel="analytics" id="nav-analytics">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  <span>Analytics</span>
+                  <span class="dash-nav__indicator" aria-hidden="true"></span>
+                </button>
+              </li>
+              <li class="dash-nav__item">
+                <button type="button" class="dash-nav__link" data-panel="collaborations" id="nav-collaborations">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span>Collaborations</span>
+                  <span class="dash-nav__indicator" aria-hidden="true"></span>
+                </button>
+              </li>
+              <li class="dash-nav__item">
+                <button type="button" class="dash-nav__link" data-panel="settings" id="nav-settings">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  <span>Settings</span>
+                  <span class="dash-nav__indicator" aria-hidden="true"></span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Sidebar Footer / Status & Logout -->
+          <div class="dash-sidebar__footer">
+            <div class="dash-sidebar__portal-link">
+              <a href="/index.html" class="dash-footer-link" target="_blank" rel="noopener">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>Live Tourism Site</span>
+              </a>
+            </div>
+
+            <button type="button" id="btn-logout" class="dash-logout-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              <span>Log Out</span>
+            </button>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- =========================================================
+           MAIN CONTENT AREA
+           ========================================================= -->
+      <main class="dash-main" id="dash-main-content">
+
+        <!-- Top Bar inside Main -->
+        <header class="dash-topbar">
+          <div class="dash-topbar__titles">
+            <span class="dash-topbar__eyebrow" id="topbar-eyebrow">Creator Portal</span>
+            <h1 class="dash-topbar__title" id="topbar-title">Overview</h1>
+          </div>
+
+          <div class="dash-topbar__actions">
+            <div class="dash-search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="dash-search-input" placeholder="Search content, spots…" aria-label="Search within creator dashboard" />
+            </div>
+
+            <button type="button" class="dash-btn-primary" id="btn-quick-new-story">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>New Story</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- =====================================================
+             PANEL 1: OVERVIEW
+             ===================================================== -->
+        <section class="dash-panel is-active" id="panel-overview" aria-labelledby="nav-overview">
+
+          <!-- Hero Greeting Banner -->
+          <div class="dash-hero-card">
+            <div class="dash-hero-card__glow"></div>
+            <div class="dash-hero-card__content">
+              <div class="dash-hero-card__user">
+                <img id="overview-hero-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Creator Avatar" class="dash-hero-card__avatar dash-avatar-loading" width="64" height="64" loading="eager" referrerpolicy="no-referrer" />
+                <div class="dash-hero-card__meta">
+                  <span class="dash-hero-card__pill" id="overview-creator-tier-pill">Community Storyteller</span>
+                  <h2 class="dash-hero-card__name">Welcome back, <span id="overview-creator-name">…</span>!</h2>
+                  <!-- bio only rendered when it exists in the database -->
+                  <p class="dash-hero-card__bio" id="overview-hero-bio" style="display:none;"></p>
+                </div>
+              </div>
+
+              <div class="dash-hero-card__stats-badge">
+                <span class="dash-hero-card__badge-sub">Covering Region</span>
+                <!-- city only rendered when it exists in the database -->
+                <strong class="dash-hero-card__badge-val" id="overview-hero-city" style="display:none;"></strong>
+                <span class="dash-hero-card__badge-tag" id="overview-hero-verified-tag" style="display:none;">Verified District Storyteller</span>
+              </div>
+            </div>
+
+            <!-- Profile Completion Meter -->
+            <div class="dash-completion-box">
+              <div class="dash-completion-header">
+                <span class="dash-completion-title">Profile Strength</span>
+                <span class="dash-completion-val" id="completion-percentage">—</span>
+              </div>
+              <div class="dash-completion-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="dash-completion-fill" id="completion-bar-fill" style="width: 0%;"></div>
+              </div>
+              <p class="dash-completion-tip" id="completion-tip">Loading your profile…</p>
+            </div>
+          </div>
+
+          <!-- Key Metrics / Stats Row -->
+          <div class="dash-metrics-grid">
+            <div class="dash-metric-card">
+              <div class="dash-metric-card__header">
+                <span class="dash-metric-card__icon dash-metric-card__icon--forest">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </span>
+                <span class="dash-metric-card__trend" id="metric-posts-trend">0 this month</span>
+              </div>
+              <div class="dash-metric-card__body">
+                <p class="dash-metric-card__label">Published Stories</p>
+                <h3 class="dash-metric-card__value" id="metric-total-posts">0</h3>
+              </div>
+              <p class="dash-metric-card__footer">Articles, reels & guides</p>
+            </div>
+
+            <div class="dash-metric-card">
+              <div class="dash-metric-card__header">
+                <span class="dash-metric-card__icon dash-metric-card__icon--river">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </span>
+                <span class="dash-metric-card__trend" id="metric-views-trend">0 views</span>
+              </div>
+              <div class="dash-metric-card__body">
+                <p class="dash-metric-card__label">Total Views</p>
+                <h3 class="dash-metric-card__value" id="metric-total-views">0</h3>
+              </div>
+              <p class="dash-metric-card__footer">Across tourist network</p>
+            </div>
+
+            <div class="dash-metric-card">
+              <div class="dash-metric-card__header">
+                <span class="dash-metric-card__icon dash-metric-card__icon--sunset">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </span>
+                <span class="dash-metric-card__trend" id="metric-likes-trend">0 likes</span>
+              </div>
+              <div class="dash-metric-card__body">
+                <p class="dash-metric-card__label">Community Likes</p>
+                <h3 class="dash-metric-card__value" id="metric-total-likes">0</h3>
+              </div>
+              <p class="dash-metric-card__footer">Saved & traveler favorited</p>
+            </div>
+
+            <div class="dash-metric-card">
+              <div class="dash-metric-card__header">
+                <span class="dash-metric-card__icon dash-metric-card__icon--gold">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </span>
+                <span class="dash-metric-card__trend" id="metric-creator-tier">Starter Tier</span>
+              </div>
+              <div class="dash-metric-card__body">
+                <p class="dash-metric-card__label">Creator Score</p>
+                <h3 class="dash-metric-card__value" id="metric-creator-score">1.0 / 5</h3>
+              </div>
+              <p class="dash-metric-card__footer" id="metric-creator-tier-desc">Publish stories to rank</p>
+            </div>
+          </div>
+
+          <!-- Quick Action Shortcuts -->
+          <div class="dash-section-block">
+            <h3 class="dash-section-title">Quick Actions</h3>
+            <div class="dash-actions-grid">
+              <button type="button" class="dash-action-card" data-switch-to="profile">
+                <div class="dash-action-card__icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <div class="dash-action-card__text">
+                  <strong>Edit Profile & Bio</strong>
+                  <span>Update contact, bio, and social links</span>
+                </div>
+              </button>
+
+              <button type="button" class="dash-action-card" data-switch-to="profile" data-target-tab="avatar">
+                <div class="dash-action-card__icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+                </div>
+                <div class="dash-action-card__text">
+                  <strong>Change Avatar</strong>
+                  <span>Upload your photographer or guide photo</span>
+                </div>
+              </button>
+
+              <button type="button" class="dash-action-card" data-switch-to="destinations">
+                <div class="dash-action-card__icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                </div>
+                <div class="dash-action-card__text">
+                  <strong>Sonbhadra Hotspots</strong>
+                  <span>Browse waterfalls, dams & historical forts</span>
+                </div>
+              </button>
+
+              <button type="button" class="dash-action-card" data-switch-to="settings">
+                <div class="dash-action-card__icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="dash-action-card__text">
+                  <strong>Security & Password</strong>
+                  <span>Manage credentials and account safety</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Recent Published Stories or Rich Empty State -->
+          <div class="dash-section-block">
+            <div class="dash-section-header">
+              <div>
+                <h3 class="dash-section-title">Recent Stories & Media</h3>
+                <p class="dash-section-subtitle">Content visible to tourists across the Sonbhadra travel portal</p>
+              </div>
+              <button type="button" class="dash-link-button" data-switch-to="content">View all content →</button>
+            </div>
+
+            <div id="overview-posts-container" class="dash-posts-preview-grid">
+              <!-- Dynamically populated or empty state -->
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =====================================================
+             PANEL 2: PROFILE & IDENTITY
+             ===================================================== -->
+        <section class="dash-panel" id="panel-profile" aria-labelledby="nav-profile">
+
+          <div class="dash-page-intro">
+            <h2>Profile & Identity Studio</h2>
+            <p>Customize how you appear to visitors, tourism partners, and travel enthusiasts looking for local guides in Sonbhadra.</p>
+          </div>
+
+          <div class="dash-grid-2col">
+
+            <!-- Left Col: Avatar & Core Identity -->
+            <div class="dash-card">
+              <h3 class="dash-card__title">Visual Identity</h3>
+              <p class="dash-card__subtitle">Your profile picture is displayed on creator stories and community leaderboards.</p>
+
+              <div class="dash-avatar-edit-box">
+                <div class="dash-avatar-edit-box__preview">
+                  <img id="profile-preview-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Avatar Preview" class="dash-avatar-lg" width="100" height="100" loading="eager" referrerpolicy="no-referrer" />
+                  <label for="profile-avatar-file-input" class="dash-avatar-upload-trigger" title="Upload new photo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  </label>
+                  <input type="file" id="profile-avatar-file-input" accept="image/*" class="sr-only" />
+                </div>
+
+                <div class="dash-avatar-edit-box__meta">
+                  <h4 id="profile-disp-fullname" class="dash-avatar-title">Ashish Kumar</h4>
+                  <p id="profile-disp-username" class="dash-avatar-username">@ashish</p>
+                  <p class="dash-avatar-specs">JPG, PNG, or WebP. Max 5MB. Clear face or photography branding recommended.</p>
+                  <div class="dash-avatar-actions">
+                    <button type="button" id="btn-save-avatar" class="dash-btn-primary is-disabled" disabled>
+                      <span class="dash-btn-spinner" aria-hidden="true"></span>
+                      <span>Upload Avatar</span>
+                    </button>
+                    <span id="avatar-save-status" class="dash-inline-status"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Covering City Card -->
+              <div class="dash-inner-card">
+                <h4 class="dash-inner-card__title">Covering Tourism City / Region</h4>
+                <p class="dash-inner-card__desc">Choose your primary area of expertise within the Sonbhadra district.</p>
+
+                <form id="form-covering-city" class="dash-form-row">
+                  <div class="dash-field dash-field--grow">
+                    <label for="input-covering-city" class="dash-label">Covering City</label>
+                    <select id="input-covering-city" class="dash-input">
+                      <option value="Robertsganj">Robertsganj (District HQ & Forts)</option>
+                      <option value="Renukoot">Renukoot (Rihand Dam & Lakes)</option>
+                      <option value="Obra">Obra (Thermal & River Valley)</option>
+                      <option value="Churk">Churk (Salkhan Fossil Park Gateway)</option>
+                      <option value="Duddhi">Duddhi (Tribal Culture & Forests)</option>
+                      <option value="Chopan">Chopan (Son River Belt & Agori Fort)</option>
+                      <option value="Anpara">Anpara (Industrial & Lake Scenic)</option>
+                      <option value="Babhani">Babhani (Hills & Eco-Forests)</option>
+                      <option value="Ghorawal">Ghorawal (Mukha Falls & Cave Paintings)</option>
+                    </select>
+                  </div>
+                  <button type="submit" id="btn-save-city" class="dash-btn-secondary">
+                    <span class="dash-btn-spinner" aria-hidden="true"></span>
+                    <span>Save City</span>
+                  </button>
+                </form>
+              </div>
+
+              <!-- Unique Username & Email Badges -->
+              <div class="dash-inner-card dash-inner-card--muted">
+                <div class="dash-info-row">
+                  <span class="dash-info-row__label">Creator Handle</span>
+                  <span class="dash-info-row__val" id="profile-readonly-username">@username</span>
+                </div>
+                <div class="dash-info-row">
+                  <span class="dash-info-row__label">Registered Email</span>
+                  <span class="dash-info-row__val" id="profile-readonly-email">email@example.com</span>
+                </div>
+                <p class="dash-info-row__hint">Handle and email are unique account credentials and cannot be modified.</p>
+              </div>
+
+            </div>
+
+            <!-- Right Col: Account Details, Bio, Social Links -->
+            <div class="dash-stack">
+
+              <!-- Contact & Personal Details -->
+              <div class="dash-card">
+                <h3 class="dash-card__title">Contact & Personal Details</h3>
+                <p class="dash-card__subtitle">Your basic contact information used for official tourism board communications.</p>
+
+                <form id="form-account-details" class="dash-form">
+                  <div class="dash-form-grid">
+                    <div class="dash-field">
+                      <label for="input-full-name" class="dash-label">Full Name</label>
+                      <input type="text" id="input-full-name" class="dash-input" placeholder="e.g. Ashish Kumar" required />
+                    </div>
+                    <div class="dash-field">
+                      <label for="input-phone" class="dash-label">Phone Number</label>
+                      <input type="tel" id="input-phone" class="dash-input" placeholder="e.g. 9876543210" required />
+                    </div>
+                  </div>
+
+                  <!-- Address Sub-Form -->
+                  <div class="dash-subform">
+                    <h4 class="dash-subform__title">Address Details (Local Residence)</h4>
+                    <div class="dash-field">
+                      <label for="input-address-street" class="dash-label">Street / Locality</label>
+                      <input type="text" id="input-address-street" class="dash-input" placeholder="Ward 5, Robertsganj" />
+                    </div>
+                    <div class="dash-form-grid dash-form-grid--3">
+                      <div class="dash-field">
+                        <label for="input-address-city" class="dash-label">City</label>
+                        <input type="text" id="input-address-city" class="dash-input" placeholder="Robertsganj" />
+                      </div>
+                      <div class="dash-field">
+                        <label for="input-address-state" class="dash-label">State</label>
+                        <input type="text" id="input-address-state" class="dash-input" value="Uttar Pradesh" />
+                      </div>
+                      <div class="dash-field">
+                        <label for="input-address-pincode" class="dash-label">Pincode</label>
+                        <input type="text" id="input-address-pincode" class="dash-input" placeholder="231216" maxlength="6" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dash-form-actions">
+                    <button type="submit" id="btn-save-account" class="dash-btn-primary">
+                      <span class="dash-btn-spinner" aria-hidden="true"></span>
+                      <span>Update Account Details</span>
+                    </button>
+                    <span id="account-save-status" class="dash-inline-status"></span>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Bio & Social Links Card -->
+              <div class="dash-card">
+                <h3 class="dash-card__title">Storyteller Bio & Social Presence</h3>
+                <p class="dash-card__subtitle">Craft a compelling bio and connect your social platforms to build credibility.</p>
+
+                <form id="form-bio-social" class="dash-form">
+                  <!-- Bio Textarea -->
+                  <div class="dash-field">
+                    <div class="dash-label-row">
+                      <label for="input-bio" class="dash-label">Creator Biography</label>
+                      <span class="dash-counter"><span id="dash-bio-count">0</span> / 300</span>
+                    </div>
+                    <textarea id="input-bio" class="dash-textarea" maxlength="300" placeholder="Share your storytelling passion, specializations (waterfalls, drones, history), and local expertise…"></textarea>
+                  </div>
+
+                  <!-- Dynamic Social Links -->
+                  <div class="dash-field">
+                    <label class="dash-label">Social & Channel Profiles</label>
+                    <p class="dash-field-hint">Add your Instagram, YouTube channel, Twitter, or photography portfolio.</p>
+
+                    <div id="dash-social-container" class="dash-social-inputs-list">
+                      <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <button type="button" id="btn-add-social-item" class="dash-btn-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                      <span>Add another profile link</span>
+                    </button>
+                  </div>
+
+                  <div class="dash-form-actions">
+                    <button type="submit" id="btn-save-bio-social" class="dash-btn-primary">
+                      <span class="dash-btn-spinner" aria-hidden="true"></span>
+                      <span>Save Bio & Links</span>
+                    </button>
+                    <span id="bio-save-status" class="dash-inline-status"></span>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- =====================================================
+             PANEL 3: MY CONTENT
+             ===================================================== -->
+        <section class="dash-panel" id="panel-content" aria-labelledby="nav-content">
+
+          <div class="dash-page-header">
+            <div>
+              <h2>My Published Content & Stories</h2>
+              <p>Articles, videos, photo trails, and guidebooks submitted to SonbhadraConnect portal.</p>
+            </div>
+            <button type="button" class="dash-btn-primary" id="btn-new-content-cta">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Submit New Story</span>
+            </button>
+          </div>
+
+          <!-- Filter & Search Bar -->
+          <div class="dash-filter-bar">
+            <div class="dash-filter-pills">
+              <button type="button" class="dash-filter-pill is-active" data-filter="all">All Items</button>
+              <button type="button" class="dash-filter-pill" data-filter="photo">Photography</button>
+              <button type="button" class="dash-filter-pill" data-filter="video">Videos & Reels</button>
+              <button type="button" class="dash-filter-pill" data-filter="guide">Travel Guides</button>
+            </div>
+
+            <div class="dash-filter-sort">
+              <label for="content-sort" class="sr-only">Sort content</label>
+              <select id="content-sort" class="dash-select-compact">
+                <option value="recent">Most Recent</option>
+                <option value="views">Most Viewed</option>
+                <option value="likes">Most Liked</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Content Grid Container -->
+          <div id="content-grid-container" class="dash-content-grid">
+            <!-- Populated dynamically via JS with real posts or curated empty state -->
+          </div>
+
+        </section>
+
+        <!-- =====================================================
+             PANEL 4: DESTINATIONS
+             ===================================================== -->
+        <section class="dash-panel" id="panel-destinations" aria-labelledby="nav-destinations">
+
+          <div class="dash-page-intro">
+            <h2>SonbhadraConnect Hotspots &amp; Coverage Areas</h2>
+            <p>Explore the premier historical, geological, and ecological destinations across Sonbhadra district to craft your next story.</p>
+          </div>
+
+          <div class="dash-dest-grid">
+            <!-- Lakhaniya Dari -->
+            <article class="dash-dest-card">
+              <div class="dash-dest-card__media">
+                <img src="/public/assets/images/destinations/lakhaniya-dari.webp" alt="Lakhaniya Dari Waterfall" loading="lazy" />
+                <span class="dash-dest-card__badge">Eco-Waterfalls</span>
+              </div>
+              <div class="dash-dest-card__content">
+                <span class="dash-dest-card__loc">📍 Ahraura / Robertsganj</span>
+                <h3 class="dash-dest-card__title">Lakhaniya Dari Waterfall</h3>
+                <p class="dash-dest-card__desc">A majestic cascading waterfall carved through steep rock ravines, popular for trekking, monsoon walks, and nature photography.</p>
+                <div class="dash-dest-card__footer">
+                  <span class="dash-dest-card__stat">12.4k Tourist Searches</span>
+                  <a href="/src/app/destinations/lakhaniya-dari.html" class="dash-dest-card__btn" target="_blank" rel="noopener">Explore Spot</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Vijaygarh Fort -->
+            <article class="dash-dest-card">
+              <div class="dash-dest-card__media">
+                <img src="/public/assets/images/destinations/vijaygarh-fort.webp" alt="Vijaygarh Fort" loading="lazy" />
+                <span class="dash-dest-card__badge">Heritage & Forts</span>
+              </div>
+              <div class="dash-dest-card__content">
+                <span class="dash-dest-card__loc">📍 Mau Kalan / Robertsganj</span>
+                <h3 class="dash-dest-card__title">Vijaygarh Fort</h3>
+                <p class="dash-dest-card__desc">5th-century cliffside fortress famed for stone inscriptions, ancient ponds (Ram Sarovar), and panoramic vistas of the Kaimur hills.</p>
+                <div class="dash-dest-card__footer">
+                  <span class="dash-dest-card__stat">9.8k Tourist Searches</span>
+                  <a href="/src/app/destinations/vijaygarh-fort.html" class="dash-dest-card__btn" target="_blank" rel="noopener">Explore Spot</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Salkhan Fossil Park -->
+            <article class="dash-dest-card">
+              <div class="dash-dest-card__media">
+                <img src="/public/assets/images/destinations/salkhan-fossils.webp" alt="Salkhan Fossil Park" loading="lazy" />
+                <span class="dash-dest-card__badge">Geological Wonder</span>
+              </div>
+              <div class="dash-dest-card__content">
+                <span class="dash-dest-card__loc">📍 Salkhan / Churk</span>
+                <h3 class="dash-dest-card__title">Salkhan Fossil Park</h3>
+                <p class="dash-dest-card__desc">Over 1.4 billion years old stromatolite fossils — older than the Grand Canyon fossils and recognized worldwide by geologists.</p>
+                <div class="dash-dest-card__footer">
+                  <span class="dash-dest-card__stat">7.5k Tourist Searches</span>
+                  <a href="/src/app/destinations/index.html#dest-salkhan-fossils" class="dash-dest-card__btn" target="_blank" rel="noopener">Explore Spot</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Rihand Dam -->
+            <article class="dash-dest-card">
+              <div class="dash-dest-card__media">
+                <img src="/public/assets/images/destinations/rihand-dam.webp" alt="Rihand Dam" loading="lazy" />
+                <span class="dash-dest-card__badge">Hydro & Lake</span>
+              </div>
+              <div class="dash-dest-card__content">
+                <span class="dash-dest-card__loc">📍 Pipri / Renukoot</span>
+                <h3 class="dash-dest-card__title">Rihand Dam (Govind Ballabh Pant Sagar)</h3>
+                <p class="dash-dest-card__desc">One of India's largest man-made reservoirs nestled between forested mountain ridges, with breathtaking sunrise viewpoints.</p>
+                <div class="dash-dest-card__footer">
+                  <span class="dash-dest-card__stat">11.2k Tourist Searches</span>
+                  <a href="/src/app/destinations/rihand.html" class="dash-dest-card__btn" target="_blank" rel="noopener">Explore Spot</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Mukha Falls -->
+            <article class="dash-dest-card">
+              <div class="dash-dest-card__media">
+                <img src="/public/assets/images/destinations/mukha-falls.webp" alt="Mukha Falls" loading="lazy" />
+                <span class="dash-dest-card__badge">Wilderness</span>
+              </div>
+              <div class="dash-dest-card__content">
+                <span class="dash-dest-card__loc">📍 Ghorawal / Belan River</span>
+                <h3 class="dash-dest-card__title">Mukha Falls & Rock Art</h3>
+                <p class="dash-dest-card__desc">Scenic fall on the Belan river surrounded by prehistoric rock shelters containing ancient cave paintings.</p>
+                <div class="dash-dest-card__footer">
+                  <span class="dash-dest-card__stat">6.1k Tourist Searches</span>
+                  <a href="/src/app/destinations/mukha-falls.html" class="dash-dest-card__btn" target="_blank" rel="noopener">Explore Spot</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Agori Fort -->
+            <article class="dash-dest-card">
+              <div class="dash-dest-card__media">
+                <img src="/public/assets/images/destinations/agori-fort.webp" alt="Agori Fort" loading="lazy" />
+                <span class="dash-dest-card__badge">Ancient Ruin</span>
+              </div>
+              <div class="dash-dest-card__content">
+                <span class="dash-dest-card__loc">📍 Chopan / Rihand Confluence</span>
+                <h3 class="dash-dest-card__title">Agori Fort & Son River</h3>
+                <p class="dash-dest-card__desc">A riverfront fortress perched at the holy junction of Son and Rihand rivers, rich with legends of tribal kings and architectural ruins.</p>
+                <div class="dash-dest-card__footer">
+                  <span class="dash-dest-card__stat">5.8k Tourist Searches</span>
+                  <a href="/src/app/destinations/agori-fort.html" class="dash-dest-card__btn" target="_blank" rel="noopener">Explore Spot</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </section>
+
+        <!-- =====================================================
+             PANEL 5: ANALYTICS
+             ===================================================== -->
+        <section class="dash-panel" id="panel-analytics" aria-labelledby="nav-analytics">
+
+          <div class="dash-page-intro">
+            <h2>Audience & Content Intelligence</h2>
+            <p>Track how your travel recommendations perform across our official district tourism ecosystem.</p>
+          </div>
+
+          <div class="dash-analytics-summary-row">
+            <div class="dash-analytics-stat-card">
+              <span class="dash-analytics-stat-card__icon">📈</span>
+              <p class="dash-analytics-stat-card__title">Total Impressions</p>
+              <h3 class="dash-analytics-stat-card__val" id="analytics-total-views">0</h3>
+              <p class="dash-analytics-stat-card__sub">Across all published media</p>
+            </div>
+
+            <div class="dash-analytics-stat-card">
+              <span class="dash-analytics-stat-card__icon">❤️</span>
+              <p class="dash-analytics-stat-card__title">Traveler Favorites</p>
+              <h3 class="dash-analytics-stat-card__val" id="analytics-total-likes">0</h3>
+              <p class="dash-analytics-stat-card__sub">Stories saved by travelers</p>
+            </div>
+
+            <div class="dash-analytics-stat-card">
+              <span class="dash-analytics-stat-card__icon">📝</span>
+              <p class="dash-analytics-stat-card__title">Content Library</p>
+              <h3 class="dash-analytics-stat-card__val" id="analytics-total-posts">0</h3>
+              <p class="dash-analytics-stat-card__sub">Live verified contributions</p>
+            </div>
+
+            <div class="dash-analytics-stat-card">
+              <span class="dash-analytics-stat-card__icon">🎯</span>
+              <p class="dash-analytics-stat-card__title">Engagement Rate</p>
+              <h3 class="dash-analytics-stat-card__val" id="analytics-engagement-rate">0.0%</h3>
+              <p class="dash-analytics-stat-card__sub" id="analytics-engagement-sub">Awaiting traveler engagement</p>
+            </div>
+          </div>
+
+          <!-- High-End Visual Charts & Distribution -->
+          <div class="dash-grid-2col">
+            <!-- Performance Chart Card -->
+            <div class="dash-card">
+              <div class="dash-card__header-flex">
+                <div>
+                  <h3 class="dash-card__title">Monthly Reach & Discovery</h3>
+                  <p class="dash-card__subtitle">Visitor engagement trends across Sonbhadra travel hubs</p>
+                </div>
+                <span class="dash-badge-forest" id="analytics-chart-badge">Active Feed</span>
+              </div>
+
+              <div class="dash-chart-bars" id="analytics-chart-container">
+                <!-- Dynamically populated based on genuine monthly activity -->
+              </div>
+
+              <div class="dash-chart-legend" id="analytics-chart-legend">
+                <!-- Dynamically populated legend -->
+              </div>
+            </div>
+
+            <!-- Demographics & Category Breakdown -->
+            <div class="dash-card">
+              <h3 class="dash-card__title">Top Tourist Discovery Categories</h3>
+              <p class="dash-card__subtitle">Content breakdown across your published Sonbhadra stories</p>
+
+              <div class="dash-progress-stack" id="analytics-categories-container">
+                <!-- Dynamically calculated from creator's published stories -->
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =====================================================
+             PANEL 6: COLLABORATIONS
+             ===================================================== -->
+        <section class="dash-panel" id="panel-collaborations" aria-labelledby="nav-collaborations">
+
+          <div class="dash-page-intro">
+            <h2>Partnerships & Tourism Initiatives</h2>
+            <p>Work directly with Uttar Pradesh Tourism, local eco-resorts, and district cultural initiatives.</p>
+          </div>
+
+          <div class="dash-collab-grid">
+            <div class="dash-collab-card dash-collab-card--featured">
+              <div class="dash-collab-card__tag">Active Initiative</div>
+              <h3 class="dash-collab-card__title">Monsoon Waterfall Storytellers Camp</h3>
+              <p class="dash-collab-card__desc">Sponsored 3-day exploration pass to document hidden waterfalls in Vijaygarh, Ahraura, and Robertsganj for the official 2026 Monsoon Campaign.</p>
+              <div class="dash-collab-card__meta">
+                <span>📍 Sonbhadra District</span>
+                <span>🎁 Honorarium + Featured Homepage Banner</span>
+              </div>
+              <button type="button" class="dash-btn-primary" id="btn-collab-waterfall">Apply as Lead Creator</button>
+            </div>
+
+            <div class="dash-collab-card">
+              <div class="dash-collab-card__tag">Upcoming</div>
+              <h3 class="dash-collab-card__title">Salkhan Fossil Heritage Docu-Series</h3>
+              <p class="dash-collab-card__desc">Partner with leading geologists to produce verified video guides on the 1.4-billion-year-old fossil reserve.</p>
+              <div class="dash-collab-card__meta">
+                <span>📍 Churk / Salkhan</span>
+                <span>🎥 Equipment & Travel Support</span>
+              </div>
+              <button type="button" class="dash-btn-secondary" id="btn-collab-salkhan">Get Notified</button>
+            </div>
+
+            <div class="dash-collab-card">
+              <div class="dash-collab-card__tag">Open Roster</div>
+              <h3 class="dash-collab-card__title">Local Homestay & Eco-Lodge Reviews</h3>
+              <p class="dash-collab-card__desc">Review authentic village homestays around Rihand Dam and Govind Ballabh Pant Sagar to promote rural tourism.</p>
+              <div class="dash-collab-card__meta">
+                <span>📍 Renukoot & Pipri</span>
+                <span>🏡 Complimentary Stays</span>
+              </div>
+              <button type="button" class="dash-btn-secondary" id="btn-collab-homestay">Check Eligibility</button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =====================================================
+             PANEL 7: SETTINGS
+             ===================================================== -->
+        <section class="dash-panel" id="panel-settings" aria-labelledby="nav-settings">
+
+          <div class="dash-page-intro">
+            <h2>Account Security & Settings</h2>
+            <p>Keep your creator account secure and configure access credentials.</p>
+          </div>
+
+          <div class="dash-grid-2col">
+
+            <!-- Change Password Card -->
+            <div class="dash-card">
+              <h3 class="dash-card__title">Change Password</h3>
+              <p class="dash-card__subtitle">Choose a robust password to safeguard your published guides and credentials.</p>
+
+              <form id="form-change-password" class="dash-form">
+                <div class="dash-field">
+                  <label for="input-old-password" class="dash-label">Current Password</label>
+                  <div class="dash-input-wrap">
+                    <input type="password" id="input-old-password" class="dash-input" placeholder="••••••••" required />
+                    <button type="button" class="dash-pwd-toggle" data-target="input-old-password" aria-label="Toggle password visibility">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="dash-field">
+                  <label for="input-new-password" class="dash-label">New Password</label>
+                  <div class="dash-input-wrap">
+                    <input type="password" id="input-new-password" class="dash-input" placeholder="At least 6 characters" minlength="6" required />
+                    <button type="button" class="dash-pwd-toggle" data-target="input-new-password" aria-label="Toggle password visibility">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="dash-field">
+                  <label for="input-confirm-password" class="dash-label">Confirm New Password</label>
+                  <div class="dash-input-wrap">
+                    <input type="password" id="input-confirm-password" class="dash-input" placeholder="Repeat new password" minlength="6" required />
+                    <button type="button" class="dash-pwd-toggle" data-target="input-confirm-password" aria-label="Toggle password visibility">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="dash-form-actions">
+                  <button type="submit" id="btn-save-password" class="dash-btn-primary">
+                    <span class="dash-btn-spinner" aria-hidden="true"></span>
+                    <span>Update Password</span>
+                  </button>
+                  <span id="password-save-status" class="dash-inline-status"></span>
+                </div>
+              </form>
+            </div>
+
+            <!-- Session & Security Zone -->
+            <div class="dash-stack">
+              <div class="dash-card">
+                <h3 class="dash-card__title">Security Overview</h3>
+                <p class="dash-card__subtitle">Your session is protected with encrypted HTTP-only JWT cookies.</p>
+
+                <div class="dash-security-badges">
+                  <div class="dash-sec-item">
+                    <span class="dash-sec-dot active"></span>
+                    <div>
+                      <strong>JWT Protected Session</strong>
+                      <p>Access and refresh tokens managed securely with backend cookies.</p>
+                    </div>
+                  </div>
+                  <div class="dash-sec-item">
+                    <span class="dash-sec-dot active"></span>
+                    <div>
+                      <strong>Encrypted Password Storage</strong>
+                      <p>Passwords hashed using bcrypt with salt rounds before database persistence.</p>
+                    </div>
+                  </div>
+                  <div class="dash-sec-item">
+                    <span class="dash-sec-dot active"></span>
+                    <div>
+                      <strong>Cloudinary Media CDN</strong>
+                      <p>Avatar and story photographs hosted with automated optimization.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Danger Zone -->
+              <div class="dash-card dash-card--danger">
+                <h3 class="dash-card__title text-danger">Account Actions</h3>
+                <p class="dash-card__subtitle">End your current session across devices.</p>
+
+                <div class="dash-danger-actions">
+                  <button type="button" id="btn-danger-logout" class="dash-btn-danger">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    <span>Log Out Now</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Modal for New Story Submission -->
+    <div id="modal-new-story" class="dash-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-story-title">
+      <div class="dash-modal__backdrop" id="modal-story-backdrop"></div>
+      <div class="dash-modal__card">
+        <button type="button" class="dash-modal__close" id="modal-story-close" aria-label="Close modal">&times;</button>
+        <div class="dash-modal__header">
+          <span class="dash-modal__tag">Creator Contribution</span>
+          <h3 id="modal-story-title" class="dash-modal__title">Submit a Tourism Story or Reel</h3>
+          <p class="dash-modal__desc">Publish authentic local insights for Lakhaniya Dari, Vijaygarh Fort, Salkhan Fossil Park, or your local town.</p>
+        </div>
+        <form id="form-submit-story" class="dash-form">
+          <div class="dash-field">
+            <label for="story-title" class="dash-label">Story Headline / Title</label>
+            <input type="text" id="story-title" class="dash-input" placeholder="e.g. Hidden Trek to Lower Lakhaniya Cascades at Sunrise" required />
+          </div>
+          <div class="dash-form-grid">
+            <div class="dash-field">
+              <label for="story-category" class="dash-label">Category</label>
+              <select id="story-category" class="dash-input">
+                <option value="waterfalls">Waterfalls & Cascades</option>
+                <option value="heritage">Forts & Historical Ruins</option>
+                <option value="fossils">Geology & Fossil Park</option>
+                <option value="wildlife">Forests & Wildlife Trails</option>
+                <option value="dams">Rihand Dam & Reservoir</option>
+                <option value="culture">Local Culture & Festivals</option>
+              </select>
+            </div>
+            <div class="dash-field">
+              <label for="story-location" class="dash-label">Spot Location</label>
+              <input type="text" id="story-location" class="dash-input" placeholder="e.g. Robertsganj, UP" required />
+            </div>
+          </div>
+          <div class="dash-field">
+            <label for="story-image-select" class="dash-label">Cover Destination Image</label>
+            <select id="story-image-select" class="dash-input">
+              <option value="/public/assets/images/destinations/lakhaniya-dari.webp">Lakhaniya Dari Waterfall</option>
+              <option value="/public/assets/images/destinations/vijaygarh-fort.webp">Vijaygarh Fort</option>
+              <option value="/public/assets/images/destinations/salkhan-fossils.webp">Salkhan Fossil Park</option>
+              <option value="/public/assets/images/destinations/rihand-dam.webp">Rihand Dam (Govind Ballabh Pant Sagar)</option>
+              <option value="/public/assets/images/destinations/mukha-falls.webp">Mukha Falls & Rock Art</option>
+              <option value="/public/assets/images/destinations/agori-fort.webp">Agori Fort & Son River</option>
+            </select>
+          </div>
+          <div class="dash-field">
+            <label for="story-body" class="dash-label">Story Description & Traveler Tips</label>
+            <textarea id="story-body" class="dash-textarea" rows="4" placeholder="Describe the trail conditions, best season to visit, entry fees, and unique photography angles…" required></textarea>
+          </div>
+          <div class="dash-modal__footer">
+            <button type="button" class="dash-btn-secondary" id="modal-story-cancel">Cancel</button>
+            <button type="submit" class="dash-btn-primary">
+              <span>Submit for Publication</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard Controller Script -->
+    <script type="module" src="./dashboard.js"></script>
+  </body>
+</html>

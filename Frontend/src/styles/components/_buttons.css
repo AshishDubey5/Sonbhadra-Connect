@@ -1,0 +1,140 @@
+/* ==========================================================================
+   BUTTON COMPONENTS (Pill-shaped, Restrained, Tactile)
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.875rem 1.875rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Primary Accent Button (Sunset Gold) */
+.btn--primary {
+  background-color: var(--color-sunset);
+  color: var(--color-forest-deep);
+  box-shadow: 0 4px 16px rgba(244, 162, 97, 0.28);
+}
+
+.btn--primary:hover {
+  background-color: #f7b27a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244, 162, 97, 0.38);
+}
+
+/* Secondary Button (Forest) */
+.btn--forest {
+  background-color: var(--color-forest);
+  color: var(--color-cream);
+  border: 1px solid transparent;
+}
+
+.btn--forest:hover {
+  background-color: var(--color-leaf);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Outline Light Button */
+.btn--outline-light {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-cream);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn--outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* Outline Dark Button */
+.btn--outline-dark {
+  background-color: transparent;
+  color: var(--color-forest-dark);
+  border: 1px solid var(--color-forest);
+}
+
+.btn--outline-dark:hover {
+  background-color: var(--color-forest);
+  color: var(--color-cream);
+  transform: translateY(-2px);
+}
+
+/* Text Link with Arrow */
+.btn-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-leaf);
+  transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.btn-text-link svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.btn-text-link:hover {
+  color: var(--color-sunset-bright);
+  gap: var(--space-xs);
+}
+
+.btn-text-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* Icon Only Button (Controls) */
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-cream);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  color: var(--color-white);
+}
+
+.btn-icon:active {
+  transform: scale(0.96);
+}
