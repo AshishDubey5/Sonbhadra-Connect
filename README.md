@@ -55,7 +55,7 @@ The platform operates on a **win-win ecosystem**:
 | Layer    | Stack       | Default Port |
 |----------|-------------|------|
 | Frontend | Static HTML | 3000 |
-| Backend  | Express API | 8000 |
+| Backend  | Express API | 4242 |
 
 ---
 
@@ -478,7 +478,7 @@ Create a `.env` file inside the `Backend/` directory using `.env.example` as the
 
 ```env
 # Server port
-PORT=8000
+PORT=4242
 
 # MongoDB connection string
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/sonbhadraconnect
