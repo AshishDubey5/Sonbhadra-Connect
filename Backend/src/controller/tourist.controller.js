@@ -81,36 +81,37 @@ const registerTourist = asyncHandler(async (req, res) => {
     let createdTourist = null;
 
     if (mongoose.connection.readyState === 1) {
-        try {
-            const existingTourist = await Tourist.findOne({ email: cleanEmail });
-            if (existingTourist) {
-                throw new APIError(409, "A tourist account with this email already exists");
-            }
+        const existingTourist = await Tourist.findOne({ email: cleanEmail });
+        if (existingTourist) {
+            throw new APIError(409, "A tourist account with this email already exists");
+        }
 
-            let avatarUrl = "";
-            const avatarLocalPath = req.file?.path || req.files?.avatar?.[0]?.path;
-            if (avatarLocalPath) {
+        let avatarUrl = "";
+        const avatarLocalPath = req.file?.path || req.files?.avatar?.[0]?.path;
+        if (avatarLocalPath) {
+            try {
                 const uploaded = await uploadOnCloudinary(avatarLocalPath);
                 if (uploaded) avatarUrl = uploaded.secure_url || uploaded.url;
+            } catch (err) {
+                console.warn("[registerTourist] Avatar upload failed, proceeding with default avatar:", err.message);
             }
-
-            const tourist = await Tourist.create({
-                fullName: fullName.trim(),
-                email: cleanEmail,
-                password,
-                phone: phone ? phone.trim() : "",
-                hometown: hometown ? hometown.trim() : "",
-                avatar: avatarUrl,
-            });
-
-            createdTourist = await Tourist.findById(tourist._id).select("-password -refreshToken");
-        } catch (err) {
-            if (err.statusCode === 409) throw err;
-            console.warn("[registerTourist] DB create skipped:", err.message);
         }
-    }
 
-    if (!createdTourist) {
+        const tourist = await Tourist.create({
+            fullName: fullName.trim(),
+            email: cleanEmail,
+            password,
+            phone: phone ? phone.trim() : "",
+            hometown: hometown ? hometown.trim() : "",
+            avatar: avatarUrl,
+        });
+
+        createdTourist = await Tourist.findById(tourist._id).select("-password -refreshToken");
+        if (createdTourist) {
+            const plainObj = createdTourist.toObject ? createdTourist.toObject() : createdTourist;
+            inMemoryStore.saveTourist(plainObj);
+        }
+    } else {
         const memExisting = inMemoryStore.getTouristByEmail(cleanEmail);
         if (memExisting) {
             throw new APIError(409, "A tourist account with this email already exists");
@@ -128,6 +129,7 @@ const registerTourist = asyncHandler(async (req, res) => {
             createdAt: new Date().toISOString(),
         };
         inMemoryStore.saveTourist(createdTourist);
+        console.warn("[registerTourist] MongoDB not connected; tourist saved to temporary in-memory store.");
     }
 
     return res
