@@ -40,6 +40,21 @@ function getRedirectUrl() {
 }
 
 /* --------------------------------------------------------------------------
+   PENDING WISHLIST HANDLER
+   -------------------------------------------------------------------------- */
+async function handlePendingWishlist() {
+  try {
+    const pending = sessionStorage.getItem('pending_wishlist_slug');
+    if (pending) {
+      await TouristService.addToWishlist(pending);
+      sessionStorage.removeItem('pending_wishlist_slug');
+    }
+  } catch (err) {
+    console.warn('[Auth] Pending wishlist sync failed:', err);
+  }
+}
+
+/* --------------------------------------------------------------------------
    TABS & HASH NAVIGATION
    -------------------------------------------------------------------------- */
 function initTabs() {
@@ -280,6 +295,7 @@ function initSignIn() {
 
       if (res.ok) {
         showGlobalSuccess('signin', '🌿 Welcome back! Redirecting to your dashboard...');
+        await handlePendingWishlist();
         setTimeout(() => {
           window.location.href = getRedirectUrl();
         }, 800);
@@ -368,6 +384,7 @@ function initSignUp() {
         // Auto login
         const loginRes = await TouristService.login({ email, password });
         if (loginRes.ok) {
+          await handlePendingWishlist();
           setTimeout(() => {
             window.location.href = getRedirectUrl();
           }, 900);
@@ -420,6 +437,7 @@ function initDemoLogin() {
       });
 
       if (res.ok) {
+        await handlePendingWishlist();
         setTimeout(() => {
           window.location.href = getRedirectUrl();
         }, 600);

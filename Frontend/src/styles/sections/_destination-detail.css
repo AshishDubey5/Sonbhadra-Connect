@@ -1405,3 +1405,111 @@
   box-shadow: 0 12px 28px rgba(231, 111, 81, 0.5);
   color: #0D1612;
 }
+
+/* ==========================================================================
+   WISHLIST BUTTON — Individual Destination Detail Page
+   ========================================================================== */
+
+/* Wishlist action row in hero header */
+.detail-hero__wishlist-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* The primary wishlist button */
+.detail-wishlist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-wishlist-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(231, 111, 81, 0.18) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.detail-wishlist-btn:hover {
+  color: #fff;
+  background: rgba(231, 111, 81, 0.15);
+  border-color: rgba(231, 111, 81, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 111, 81, 0.2);
+}
+
+.detail-wishlist-btn:hover::after {
+  opacity: 1;
+}
+
+.detail-wishlist-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              fill 0.25s ease,
+              stroke 0.25s ease;
+}
+
+.detail-wishlist-btn:hover svg {
+  transform: scale(1.2);
+}
+
+/* Wishlisted active state */
+.detail-wishlist-btn.is-wishlisted {
+  background: rgba(231, 111, 81, 0.2);
+  border-color: rgba(231, 111, 81, 0.6);
+  color: #F4A261;
+  box-shadow: 0 0 0 0px rgba(231, 111, 81, 0.3);
+  animation: wishlistGlow 0.5s ease forwards;
+}
+
+.detail-wishlist-btn.is-wishlisted svg {
+  fill: #E76F51;
+  stroke: #E76F51;
+}
+
+@keyframes wishlistGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(231, 111, 81, 0.5); }
+  50%  { box-shadow: 0 0 0 8px rgba(231, 111, 81, 0); }
+  100% { box-shadow: 0 6px 20px rgba(231, 111, 81, 0.28); }
+}
+
+@keyframes detailHeartPop {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.6); }
+  65%  { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+
+.detail-wishlist-btn.is-wishlisted svg {
+  animation: detailHeartPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Wishlist count badge */
+.detail-wishlist-count {
+  font-family: var(--font-meta);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
+}

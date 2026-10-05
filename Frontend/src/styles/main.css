@@ -1,7 +1,11 @@
 /* ==========================================================================
    SONBHADRA TOURISM - MASTER PRODUCTION STYLESHEET
-   Unified, high-performance, standalone CSS (Zero @import dependency)
+   Unified, high-performance CSS
    ========================================================================== */
+
+/* Mandatory Top-Level Section Imports (Per W3C CSS spec: @import must precede rules) */
+@import url('./sections/_destination-detail.css');
+@import url('./sections/_destinations-page.css');
 
 /* --------------------------------------------------------------------------
    1. DESIGN TOKENS & SYSTEM VARIABLES
@@ -3468,9 +3472,4 @@ p {
 .dest-reveal.delay-4 { transition-delay: 320ms; }
 .dest-reveal.delay-5 { transition-delay: 400ms; }
 .dest-reveal.delay-6 { transition-delay: 480ms; }
-
-/* --------------------------------------------------------------------------
-   21. INDIVIDUAL DESTINATION DETAIL SECTION STYLES
-   -------------------------------------------------------------------------- */
-@import url('./sections/_destination-detail.css');
 

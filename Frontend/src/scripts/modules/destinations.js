@@ -64,7 +64,7 @@ export function initDestinationsPage() {
     'dest-vijaygarh-fort': './vijaygarh-fort.html',
     'dest-agori-fort': './agori-fort.html',
     'dest-mukha-falls': './mukha-falls.html',
-    'dest-salkhan-fossils': './vijaygarh-fort.html',
+    'dest-salkhan-fossils': './salkhan-fossils.html',
     'dest-obra-dam': './rihand.html',
     'dest-chopan-ghats': './agori-fort.html',
     'dest-kaimur-sanctuary': './mukha-falls.html'
