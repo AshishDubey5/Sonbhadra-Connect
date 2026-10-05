@@ -8,6 +8,7 @@
 
 import { DestinationDetailService } from '../services/destination-detail.service.js';
 import { CreatorService } from '../services/creator.service.js';
+import { initDetailWishlistButton } from './modules/wishlist.js';
 
 class DestinationPageController {
   constructor() {
@@ -33,8 +34,21 @@ class DestinationPageController {
     if (pathname.includes('vijaygarh')) return 'vijaygarh-fort';
     if (pathname.includes('agori')) return 'agori-fort';
     if (pathname.includes('mukha')) return 'mukha-falls';
+    if (pathname.includes('salkhan')) return 'salkhan-fossils';
 
     return 'rihand-dam';
+  }
+
+  resolveImgUrl(url, fallback = '') {
+    if (!url) return fallback || '';
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
+      return url;
+    }
+    const publicIdx = url.indexOf('public/assets/');
+    if (publicIdx !== -1) {
+      return '../../../' + url.substring(publicIdx);
+    }
+    return url;
   }
 
   async init() {
@@ -82,23 +96,33 @@ class DestinationPageController {
     const qf = d.quickFacts || {};
     const gallery = d.gallery || [];
     const firstImg = gallery[0] || { url: '', alt: d.name, caption: d.tagline };
+    const firstUrl = this.resolveImgUrl(firstImg.url, firstImg.fallback);
+    const firstFallback = this.resolveImgUrl(firstImg.fallback || '');
 
-    const thumbnailCards = gallery.map((img, idx) => `
-      <div class="detail-gallery-thumb-card ${idx === 0 ? 'is-active' : ''}" data-index="${idx}" data-full="${img.url}" data-caption="${img.caption || img.alt}">
-        <img src="${img.url}" alt="${img.alt}" loading="lazy" />
+    const thumbnailCards = gallery.map((img, idx) => {
+      const fullUrl = this.resolveImgUrl(img.url, img.fallback);
+      const fallbackUrl = this.resolveImgUrl(img.fallback || '');
+      return `
+      <div class="detail-gallery-thumb-card ${idx === 0 ? 'is-active' : ''}" data-index="${idx}" data-full="${fullUrl}" ${fallbackUrl ? `data-fallback="${fallbackUrl}"` : ''} data-caption="${img.caption || img.alt}">
+        <img src="${fullUrl}" alt="${img.alt}" loading="lazy" ${fallbackUrl ? `data-fallback="${fallbackUrl}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src=this.dataset.fallback; }"` : ''} />
       </div>
-    `).join('');
+    `;
+    }).join('');
 
-    const galleryCards = gallery.map((img, idx) => `
-      <div class="detail-gallery-card" data-index="${idx}" data-full="${img.url}">
+    const galleryCards = gallery.map((img, idx) => {
+      const fullUrl = this.resolveImgUrl(img.url, img.fallback);
+      const fallbackUrl = this.resolveImgUrl(img.fallback || '');
+      return `
+      <div class="detail-gallery-card" data-index="${idx}" data-full="${fullUrl}">
         <div class="detail-gallery-card__img-wrap">
-          <img src="${img.url}" alt="${img.alt}" class="detail-gallery-card__img" loading="lazy" />
+          <img src="${fullUrl}" alt="${img.alt}" class="detail-gallery-card__img" loading="lazy" ${fallbackUrl ? `data-fallback="${fallbackUrl}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src=this.dataset.fallback; }"` : ''} />
         </div>
         <div class="detail-gallery-card__caption">
           <p class="detail-gallery-card__caption-text">${img.caption || img.alt}</p>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
 
     container.innerHTML = `
       <div class="container">
@@ -136,11 +160,20 @@ class DestinationPageController {
           <h1 class="detail-hero__title">${d.name}</h1>
           <p class="detail-hero__tagline">${d.tagline}</p>
           <p class="detail-hero__summary">${d.summary}</p>
+
+          <div class="detail-hero__wishlist-row">
+            <button class="detail-wishlist-btn" id="detailWishlistBtn" data-dest-id="${this.slug}" data-dest-name="${d.name}" aria-label="Add ${d.name} to wishlist" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              <span>Add to Wishlist</span>
+            </button>
+          </div>
         </div>
 
         <!-- 5-6 Destination Images Showcase in Hero -->
         <div class="detail-hero-stage" id="heroStage" role="region" aria-label="Featured destination imagery" style="cursor: pointer;">
-          <img src="${firstImg.url}" alt="${firstImg.alt}" class="detail-hero-stage__img" id="heroStageImg" />
+          <img src="${firstUrl}" alt="${firstImg.alt}" class="detail-hero-stage__img" id="heroStageImg" ${firstFallback ? `data-fallback="${firstFallback}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src=this.dataset.fallback; }"` : ''} />
           <div class="detail-hero-stage__overlay"></div>
           <div class="detail-hero-stage__caption-wrap">
             <div class="detail-hero-stage__caption" id="heroStageCaption">${firstImg.caption || firstImg.alt}</div>
@@ -353,7 +386,7 @@ class DestinationPageController {
       <div class="detail-creator-card">
         <div class="detail-creator-profile">
           <div class="detail-creator-avatar-wrap">
-            <img src="${c.avatar}" alt="${c.name}" class="detail-creator-avatar" />
+            <img src="${this.resolveImgUrl(c.avatar)}" alt="${c.name}" class="detail-creator-avatar" />
           </div>
           <h3 class="detail-creator-name">${c.name}</h3>
           <span class="detail-creator-handle">${c.handle}</span>
@@ -386,7 +419,7 @@ class DestinationPageController {
               <div class="detail-creator-posts-grid">
                 ${c.recentPosts.map(p => `
                   <a href="${c.social.instagram}" target="_blank" rel="noopener" class="detail-creator-post-card">
-                    <img src="${p.thumbnail}" alt="${p.title}" class="detail-creator-post-thumb" />
+                    <img src="${this.resolveImgUrl(p.thumbnail)}" alt="${p.title}" class="detail-creator-post-thumb" />
                     <div>
                       <div class="detail-creator-post-title">${p.title}</div>
                       <div class="detail-creator-post-views">${p.type} • ${p.views}</div>
@@ -517,7 +550,7 @@ class DestinationPageController {
           <!-- Card 1: Certified Local Guide Profile -->
           <div class="tourist-guide-card">
             <div class="guide-profile-head">
-              <img src="${guide.avatar}" alt="${guide.name}" class="guide-avatar" />
+              <img src="${this.resolveImgUrl(guide.avatar)}" alt="${guide.name}" class="guide-avatar" />
               <div>
                 <h3 class="guide-name">${guide.name}</h3>
                 <span class="guide-title">Resident Certified Guide</span>
@@ -864,7 +897,7 @@ class DestinationPageController {
 
     const cards = related.map(d => `
       <a href="${getPageUrl(d.slug || d.id)}" class="detail-related-card">
-        <img src="${d.image}" alt="${d.name}" class="detail-related-card__thumb" loading="lazy" />
+        <img src="${this.resolveImgUrl(d.image)}" alt="${d.name}" class="detail-related-card__thumb" loading="lazy" />
         <div class="detail-related-card__body">
           <span class="detail-related-card__tag">${d.category}</span>
           <h3 class="detail-related-card__name">${d.name}</h3>
@@ -945,10 +978,16 @@ class DestinationPageController {
       thumb.addEventListener('click', () => {
         const fullUrl = thumb.dataset.full;
         const caption = thumb.dataset.caption;
+        const fallback = thumb.dataset.fallback;
         if (stageImg && fullUrl) {
           stageImg.style.opacity = '0.3';
           setTimeout(() => {
             stageImg.src = fullUrl;
+            if (fallback) {
+              stageImg.dataset.fallback = fallback;
+            } else {
+              delete stageImg.dataset.fallback;
+            }
             stageImg.style.opacity = '1';
           }, 150);
         }
@@ -990,6 +1029,9 @@ class DestinationPageController {
         });
       });
     }
+
+    // Wishlist Toggle Button
+    initDetailWishlistButton(this.slug, this.destination.name);
   }
 
   initNavigation() {

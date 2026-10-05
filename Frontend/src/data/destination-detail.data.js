@@ -27,40 +27,39 @@ export const DESTINATION_DETAILS = {
     // 1. Destination Hero Media Gallery (5-6 images)
     gallery: [
       {
-        url: '../../public/assets/images/destinations/rihand-dam.webp',
-        alt: 'Rihand Dam panoramic spillway and reservoir at sunset',
-        caption: 'The vast spillway and endless water horizon at golden hour',
+        url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/rihand-dam.webp',
+        alt: 'Vast Govind Ballabh Pant Sagar reservoir expanse at Rihand Dam',
+        caption: 'Asia’s colossal inland sea stretching across the horizon at sunset',
         type: 'featured'
       },
       {
-        url: '../../public/assets/images/destinations/agori-fort.webp',
-        alt: 'Tranquil waters of Son river basin near the reservoir backwaters',
-        caption: 'Misty morning across the confluence backwaters',
+        url: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/rihand-dam.webp',
+        alt: 'Tranquil sapphire waters framed by rolling Vindhyan hillocks',
+        caption: 'Scenic reservoir perimeter bordered by Pipri and Singrauli hills',
         type: 'landscape'
       },
       {
-        url: '../../public/assets/images/destinations/lakhaniya-dari.webp',
-        alt: 'Lush Vindhyan forest ridges surrounding the dam perimeter',
-        caption: 'Verdant green hillocks framing the reservoir boundary',
-        type: 'nature'
+        url: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Massive concrete dam structure and hydroelectric infrastructure',
+        caption: 'The monumental 91-meter-high concrete gravity dam engineering marvel',
+        type: 'infrastructure'
       },
       {
-        url: '../../public/assets/images/destinations/mukha-falls.webp',
-        alt: 'Turbulent monsoon overflow creating roaring torrents',
-        caption: 'Monsoon discharge when the 61 gates release surplus currents',
+        url: 'https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Roaring white water torrents during monsoon spillway gate release',
+        caption: 'Spectacular monsoon water release surging through the overflow gates',
         type: 'action'
       },
       {
-        url: '../../public/assets/images/destinations/salkhan-fossils.webp',
-        alt: 'Ancient geological formations along the Pipri hill slopes',
-        caption: 'Ancient rocky shoreline bordering the southern reservoir bank',
-        type: 'geology'
-      },
-      {
-        url: '../../public/assets/images/destinations/vijaygarh-fort.webp',
-        alt: 'High elevation vantage point overlooking the water basin',
-        caption: 'Vantage point offering a 360-degree vista of the inland sea',
-        type: 'aerial'
+        url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Golden twilight reflections across the endless inland sea',
+        caption: 'Sunset hues turning the expansive reservoir into molten gold',
+        type: 'sunset'
       }
     ],
 
@@ -101,7 +100,7 @@ export const DESTINATION_DETAILS = {
         name: 'Sonbhadra Drone Tales',
         handle: '@sonbhadradrone',
         hometown: 'Renukoot, Sonbhadra',
-        avatar: '../../public/assets/images/creators/sonbhadra-drone-tales.webp',
+        avatar: '../../../public/assets/images/creators/sonbhadra-drone-tales.webp',
         isVerified: true,
         primaryFocus: 'Cinematic Drone & Golden Hour Reels',
         bio: 'Documenting the vast scale of Rihand Dam reservoir, misty morning gorges, and the industrial-natural juxtaposition across Sonbhadra.',
@@ -113,13 +112,13 @@ export const DESTINATION_DETAILS = {
         recentPosts: [
           {
             title: 'Spillway Mist at Dawn 4K',
-            thumbnail: '../../public/assets/images/destinations/rihand-dam.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=75',
             type: 'Aerial Reel',
             views: '24.8K views'
           },
           {
             title: 'Sunset over 450 sq km Lake',
-            thumbnail: '../../public/assets/images/destinations/agori-fort.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=75',
             type: 'Photography',
             views: '12.4K views'
           }
@@ -188,33 +187,38 @@ export const DESTINATION_DETAILS = {
 
     gallery: [
       {
-        url: '../../public/assets/images/destinations/lakhaniya-dari.webp',
-        alt: 'Main cascade of Lakhaniya Dari roaring into the emerald canyon',
-        caption: 'The main cascade tumbling 150 feet into the deep pool',
+        url: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/lakhaniya-dari.webp',
+        alt: 'Main cascade of Lakhaniya Dari roaring into the emerald canyon pool',
+        caption: 'The main cascade tumbling 150 feet into the deep plunge pool',
         type: 'featured'
       },
       {
-        url: '../../public/assets/images/destinations/mukha-falls.webp',
-        alt: 'Rock boulder trail along the river gorge',
-        caption: 'Boulder-strewn stream bed leading to the upper waterfall',
+        url: 'https://images.unsplash.com/photo-1498855926480-d98e83099315?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Rock boulder trail along the crystal mountain river stream',
+        caption: 'Boulder-strewn stream bed leading hikers towards the upper falls',
+        type: 'trek'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/sonbhadra-forests.webp',
+        alt: 'Dense canopy of sal and mahua trees shielding the gorge',
+        caption: 'Lush monsoon canopy overlooking the secluded Vindhyan canyon rim',
         type: 'nature'
       },
       {
-        url: '../../public/assets/images/destinations/vijaygarh-fort.webp',
-        alt: 'Dense canopy of sal and mahua trees shielding the gorge',
-        caption: 'Pristine monsoon canopy overlooking the canyon rim',
+        url: 'https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Emerald plunge pool surrounded by sheer sandstone walls',
+        caption: 'Cool spray and natural emerald waters at the base of the waterfall',
         type: 'landscape'
       },
       {
-        url: '../../public/assets/images/destinations/rihand-dam.webp',
-        alt: 'Misty water spray dancing under monsoon sunshine',
-        caption: 'Cool spray enveloping hikers after a two-hour gorge trek',
-        type: 'nature'
-      },
-      {
-        url: '../../public/assets/images/destinations/salkhan-fossils.webp',
+        url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85',
         alt: 'Ancient sandstone strata carved by millenia of running water',
-        caption: 'Geological sandstone terraces carved by perennial water flow',
+        caption: 'Primeval rock amphitheatre and sandstone gorge formations',
         type: 'geology'
       }
     ],
@@ -266,13 +270,13 @@ export const DESTINATION_DETAILS = {
         recentPosts: [
           {
             title: 'Extreme Monsoon Trek to Lakhaniya',
-            thumbnail: '../../public/assets/images/destinations/lakhaniya-dari.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=75',
             type: 'Trek Vlog',
             views: '38.2K views'
           },
           {
             title: 'Hidden Upper Cascade Trail Guide',
-            thumbnail: '../../public/assets/images/destinations/mukha-falls.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1498855926480-d98e83099315?auto=format&fit=crop&w=600&q=75',
             type: 'Guide',
             views: '19.1K views'
           }
@@ -337,33 +341,38 @@ export const DESTINATION_DETAILS = {
 
     gallery: [
       {
-        url: '../../public/assets/images/destinations/vijaygarh-fort.webp',
-        alt: 'Massive stone ramparts of Vijaygarh Fort against the sky',
-        caption: 'The imposing sandstone ramparts guarding the northern escarpment',
+        url: 'https://images.unsplash.com/photo-1585130401366-fe05a8d813c4?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/vijaygarh-fort.webp',
+        alt: 'Massive sandstone ramparts of Vijaygarh Fort against the sky',
+        caption: 'Imposing 5th-century sandstone battlements on the northern ridge',
         type: 'featured'
       },
       {
-        url: '../../public/assets/images/destinations/salkhan-fossils.webp',
-        alt: 'Ancient stone steps carved into the sheer mountain ridge',
-        caption: 'Steep stone stairway climbing 400 meters up the rocky spur',
+        url: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/vijaygarh-fort.webp',
+        alt: 'Ancient stone steps climbing 400 meters up the mountain plateau',
+        caption: 'Steep stone stairway carved directly into the sheer mountain spur',
         type: 'heritage'
       },
       {
-        url: '../../public/assets/images/destinations/agori-fort.webp',
-        alt: 'Perennial cave reservoir Mira Sagar inside the fort',
-        caption: 'Mira Sagar and Ram Sagar — perennial ponds that never run dry',
+        url: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Ancient mountaintop reservoir Mira Sagar and Ram Sagar',
+        caption: 'Perennial mountaintop cave reservoirs that have never dried in recorded history',
         type: 'architecture'
       },
       {
-        url: '../../public/assets/images/destinations/lakhaniya-dari.webp',
-        alt: 'Vast panorama of the Son valley seen from the battlements',
-        caption: 'Commanding 360-degree vista spanning the Son valley basin',
+        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Commanding 360-degree vista spanning the Son valley basin',
+        caption: 'Breathtaking panoramic horizon over the Son river valley from the battlements',
         type: 'view'
       },
       {
-        url: '../../public/assets/images/destinations/mukha-falls.webp',
-        alt: 'Ancient rock art and inscriptions carved into cave shelters',
-        caption: 'Cave inscriptions dating across Gupta, Chandela, and medieval eras',
+        url: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Gupta-era rock carvings and ancient inscriptions in cave shelters',
+        caption: 'Inscribed stone arches and relics celebrated in the novel Chandrakanta',
         type: 'history'
       }
     ],
@@ -403,7 +412,7 @@ export const DESTINATION_DETAILS = {
         name: 'Vindhya Heritage Explorer',
         handle: '@vindhyaheritage',
         hometown: 'Robertsganj, Sonbhadra',
-        avatar: '../../public/assets/images/creators/vindhya-heritage.webp',
+        avatar: '../../../public/assets/images/creators/vindhya-heritage.webp',
         isVerified: true,
         primaryFocus: 'Archaeological Research & Historical Documentaries',
         bio: 'Preserving ancient oral histories, medieval fort architecture, and millennia-old rock shelters hidden across Sonbhadra’s plateau.',
@@ -415,13 +424,13 @@ export const DESTINATION_DETAILS = {
         recentPosts: [
           {
             title: 'Secrets of the Chandrakanta Tilism',
-            thumbnail: '../../public/assets/images/destinations/vijaygarh-fort.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1585130401366-fe05a8d813c4?auto=format&fit=crop&w=600&q=75',
             type: 'Heritage Doc',
             views: '45.1K views'
           },
           {
             title: 'Climbing the 1000 Steps of Vijaygarh',
-            thumbnail: '../../public/assets/images/destinations/salkhan-fossils.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=75',
             type: 'Field Guide',
             views: '22.8K views'
           }
@@ -486,33 +495,38 @@ export const DESTINATION_DETAILS = {
 
     gallery: [
       {
-        url: '../../public/assets/images/destinations/agori-fort.webp',
+        url: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/agori-fort.webp',
         alt: 'Ancient stone walls of Agori Fort overlooking the Son river',
-        caption: 'Stone ramparts rising above the flowing waters of the Son River',
+        caption: 'Weathered fortress bastions guarding the sacred river promontory',
         type: 'featured'
       },
       {
-        url: '../../public/assets/images/destinations/rihand-dam.webp',
-        alt: 'Wooden country boat ferrying visitors across the river',
-        caption: 'Traditional wooden boat ferry crossing to the island fort',
+        url: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Traditional wooden country boat crossing Son and Renu confluence',
+        caption: 'Local boat ferry carrying travelers across the river to the island fortress',
         type: 'lifestyle'
       },
       {
-        url: '../../public/assets/images/destinations/vijaygarh-fort.webp',
+        url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/agori-fort.webp',
         alt: 'Arched gateway and crumbling stone palaces inside Agori',
-        caption: 'Carved arched stone entrance framing overgrown courtyard ruins',
+        caption: 'Carved stone arches framing historical palace ruins and courtyards',
         type: 'architecture'
       },
       {
-        url: '../../public/assets/images/destinations/salkhan-fossils.webp',
+        url: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85',
         alt: 'Sunset reflection across the Son and Renu river confluence',
-        caption: 'Golden reflections at the confluence of the Son and Renu rivers',
+        caption: 'Evening crimson glow reflecting on the sacred Son and Renu confluence',
         type: 'sunset'
       },
       {
-        url: '../../public/assets/images/destinations/lakhaniya-dari.webp',
-        alt: 'Ancient temple ruins inside the fort perimeter',
-        caption: 'Medieval temple sanctum nestled within the inner bastion',
+        url: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Medieval temple sanctum nestled within the inner bastion',
+        caption: 'Ancient stone temple sanctum echoing folklore of Veer Lorik and Manjari',
         type: 'heritage'
       }
     ],
@@ -552,7 +566,7 @@ export const DESTINATION_DETAILS = {
         name: 'Sonbhadra Drone Tales',
         handle: '@sonbhadradrone',
         hometown: 'Renukoot, Sonbhadra',
-        avatar: '../../public/assets/images/creators/sonbhadra-drone-tales.webp',
+        avatar: '../../../public/assets/images/creators/sonbhadra-drone-tales.webp',
         isVerified: true,
         primaryFocus: 'Aerial & River Confluence Cinematography',
         bio: 'Cinematographer documenting the vast scale of Rihand Dam reservoir, misty morning gorges, and golden-hour sandstone ramparts.',
@@ -564,7 +578,7 @@ export const DESTINATION_DETAILS = {
         recentPosts: [
           {
             title: 'Agori Fort Island from 500ft',
-            thumbnail: '../../public/assets/images/destinations/agori-fort.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=75',
             type: 'Aerial 4K',
             views: '31.5K views'
           }
@@ -629,33 +643,38 @@ export const DESTINATION_DETAILS = {
 
     gallery: [
       {
-        url: '../../public/assets/images/destinations/mukha-falls.webp',
-        alt: 'Mukha Falls cascading dramatically over the sandstone canyon',
-        caption: 'The thunderous main fall dropping into the horseshoe gorge',
+        url: 'https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/mukha-falls.webp',
+        alt: 'Mukha Waterfalls cascading dramatically over horseshoe canyon',
+        caption: 'The thunderous main fall plunging into the prehistoric horseshoe canyon',
         type: 'featured'
       },
       {
-        url: '../../public/assets/images/destinations/lakhaniya-dari.webp',
-        alt: 'Deep canyon pools framed by golden sandstone cliffs',
-        caption: 'The emerald plunge pool bordered by towering canyon walls',
+        url: 'https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1498855926480-d98e83099315?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Crystal mountain river winding between massive sandstone boulders',
+        caption: 'The pristine stream bed of Belan river framed by towering golden cliffs',
         type: 'nature'
       },
       {
-        url: '../../public/assets/images/destinations/salkhan-fossils.webp',
-        alt: 'Prehistoric rock art in natural cave shelters near the falls',
-        caption: 'Prehistoric ochre petroglyphs found in neighboring rock shelters',
+        url: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/salkhan-fossils.webp',
+        alt: 'Prehistoric rock art shelters and petroglyphs near the falls',
+        caption: 'Ancient ochre petroglyphs and mesolithic rock shelters along the gorge',
         type: 'archaeology'
       },
       {
-        url: '../../public/assets/images/destinations/vijaygarh-fort.webp',
-        alt: 'Vast plateau wilderness surrounding Ghorawal',
-        caption: 'Rugged Vindhyan plateau savanna stretching towards the horizon',
+        url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/sonbhadra-forests.webp',
+        alt: 'Rugged Vindhyan plateau savanna stretching to the horizon',
+        caption: 'Expansive Vindhyan plateau wilderness surrounding the Ghorawal escarpment',
         type: 'landscape'
       },
       {
-        url: '../../public/assets/images/destinations/rihand-dam.webp',
-        alt: 'Monsoon rainbow forming in the waterfall mist',
-        caption: 'Monsoon rainbow glowing over the mist-filled canyon',
+        url: 'https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Monsoon mist and rainbow glowing over the waterfall plunge',
+        caption: 'Prismatic monsoon mist dancing over the canyon depths in morning light',
         type: 'nature'
       }
     ],
@@ -707,7 +726,7 @@ export const DESTINATION_DETAILS = {
         recentPosts: [
           {
             title: 'Hidden Mukha Falls Canyon Trek',
-            thumbnail: '../../public/assets/images/destinations/mukha-falls.webp',
+            thumbnail: 'https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=600&q=75',
             type: 'Expedition',
             views: '29.3K views'
           }
@@ -757,5 +776,271 @@ export const DESTINATION_DETAILS = {
     },
 
     relatedSlugs: ['lakhaniya-dari', 'vijaygarh-fort', 'kaimur-sanctuary']
+  },
+
+  'salkhan-fossils': {
+    slug: 'salkhan-fossils',
+    name: 'Salkhan Fossil Park (Stromatolites)',
+    shortName: 'Salkhan Fossils',
+    tagline: '1.4-billion-year-old petrified evidence of primordial life on Earth',
+    category: 'Prehistoric Geology & Natural Heritage',
+    categoryBadge: 'Prehistoric Geology',
+    location: 'Salkhan Village, Sonbhadra District, Uttar Pradesh',
+    coordinates: { lat: 24.5833, lng: 83.0833, label: 'Salkhan Fossil Park, Sonbhadra' },
+    summary: 'Older than the dinosaurs and pre-dating complex multicellular organisms, the Salkhan Fossil Park preserves stromatolites formed by cyanobacteria over 1.4 billion years ago. A site of global geological heritage, these fossilized circular rings are embedded directly into ancient Vindhyan sandstone beds.',
+
+    gallery: [
+      {
+        url: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/salkhan-fossils.webp',
+        alt: '1.4-billion-year-old Stromatolite fossils at Salkhan',
+        caption: 'Petrified Precambrian algal fossils dating back 1.4 billion years',
+        type: 'featured'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Concentric rings and layered stromatolite structures in sandstone',
+        caption: 'Distinctive concentric ring patterns created by ancient cyanobacteria',
+        type: 'geology'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Geological trail through the open-air fossil park',
+        caption: 'Walking path traversing the ancient Precambrian sedimentary rock terrace',
+        type: 'nature'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/salkhan-fossils.webp',
+        alt: 'Prehistoric sandstone outcrops and scrub hills of Salkhan',
+        caption: 'Rugged terrain preserving Earth’s earliest macroscopic life evidence',
+        type: 'landscape'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Golden hour sunset casting warm shadows on ancient fossil beds',
+        caption: 'Sunset illuminating rock surfaces that formed before complex life existed',
+        type: 'sunset'
+      }
+    ],
+
+    stories: [
+      {
+        id: 'primordial-life',
+        title: 'Before the Dinosaurs: Life 1.4 Billion Years Ago',
+        subtitle: 'How microbial mats shaped the oxygen of our planet',
+        tag: 'Precambrian Science',
+        readTime: '4 min read',
+        quote: 'These fossilized rings are tangible relics from the era when single-celled life was inventing the atmosphere we breathe today.',
+        content: [
+          'Spread across 25 hectares near the Robertsganj plateau, the stromatolites of Salkhan were formed during the Mesoproterozoic era, approximately 1,400 million years ago.',
+          'Colonies of photosynthetic cyanobacteria trapped layers of fine sediment in shallow warm marine bays, gradually mineralizing into tree-ring-like concentric cylindrical stone pillars.',
+          'Geologists worldwide consider Salkhan to rival or exceed the famous fossil parks of America and Australia in density and preservation state.'
+        ]
+      }
+    ],
+
+    creators: [
+      {
+        id: 'vindhya-heritage-walks',
+        name: 'Vindhya Heritage Explorer',
+        handle: '@vindhyaheritage',
+        hometown: 'Robertsganj, Sonbhadra',
+        avatar: '../../../public/assets/images/creators/vindhya-heritage.webp',
+        isVerified: true,
+        primaryFocus: 'Prehistoric Geology & Heritage Preservation',
+        bio: 'Preserving ancient oral histories, medieval fort architecture, and millennia-old rock shelters hidden across Sonbhadra’s plateau.',
+        profileUrl: '../index.html#creators',
+        social: {
+          instagram: 'https://instagram.com/[PLACEHOLDER]',
+          youtube: 'https://youtube.com/[PLACEHOLDER]'
+        },
+        recentPosts: [
+          {
+            title: 'Touching 1.4 Billion Years of History',
+            thumbnail: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=600&q=75',
+            type: 'Geology Vlog',
+            views: '35.4K views'
+          }
+        ]
+      }
+    ],
+
+    quickFacts: {
+      bestSeason: 'October to March (Pleasant weather for open-rock walking)',
+      timings: '08:00 AM – 05:30 PM daily',
+      entryFee: 'Nominal Forest Dept ticket (₹10 – ₹20 per visitor)',
+      difficulty: 'Easy (Gradual stone steps and flat earthen pathways)',
+      nearestRailway: 'Robertsganj Railway Station (RBGJ) — 16 km',
+      nearestAirport: 'Varanasi International Airport (LBS) — ~115 km',
+      howToReach: 'Located just 1.5 km off State Highway 5A near Salkhan village, easily accessible by auto or taxi from Robertsganj.'
+    },
+
+    mapDetails: {
+      lat: 24.5833,
+      lng: 83.0833,
+      mapQuery: 'Salkhan Fossil Park, Sonbhadra, Uttar Pradesh',
+      terrain: 'Sandstone ridges, dry deciduous scrub forest, exposed rock terraces.',
+      landmarks: [
+        'Veer Lorik Stone (14 km)',
+        'Vijaygarh Fort (18 km)',
+        'Robertsganj Market (16 km)'
+      ],
+      safetyNotes: 'Rocks can become very hot during midday summer sun. Carry a hat, sunglasses, and water.'
+    },
+
+    communityGuidelines: {
+      etiquette: [
+        'Do not chip, hammer, or take pieces of fossil stone as souvenirs.',
+        'Follow designated walkways and avoid scraping rock surfaces with hard objects.',
+        'Respect this rare global geological treasure.'
+      ],
+      ecoRules: [
+        'Strictly zero plastic littering in the reserve.',
+        'Keep noise levels low to respect local flora and birdlife.'
+      ],
+      safetyWarnings: [
+        'Watch your footing over unpaved rock fissures.',
+        'Do not climb unstable boulder stacks.'
+      ]
+    },
+
+    relatedSlugs: ['vijaygarh-fort', 'agori-fort', 'lakhaniya-dari']
+  },
+
+  'salkhan-fossil-park': {
+    slug: 'salkhan-fossil-park',
+    name: 'Salkhan Fossil Park (Stromatolites)',
+    shortName: 'Salkhan Fossils',
+    tagline: '1.4-billion-year-old petrified evidence of primordial life on Earth',
+    category: 'Prehistoric Geology & Natural Heritage',
+    categoryBadge: 'Prehistoric Geology',
+    location: 'Salkhan Village, Sonbhadra District, Uttar Pradesh',
+    coordinates: { lat: 24.5833, lng: 83.0833, label: 'Salkhan Fossil Park, Sonbhadra' },
+    summary: 'Older than the dinosaurs and pre-dating complex multicellular organisms, the Salkhan Fossil Park preserves stromatolites formed by cyanobacteria over 1.4 billion years ago. A site of global geological heritage, these fossilized circular rings are embedded directly into ancient Vindhyan sandstone beds.',
+
+    gallery: [
+      {
+        url: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/salkhan-fossils.webp',
+        alt: '1.4-billion-year-old Stromatolite fossils at Salkhan',
+        caption: 'Petrified Precambrian algal fossils dating back 1.4 billion years',
+        type: 'featured'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Concentric rings and layered stromatolite structures in sandstone',
+        caption: 'Distinctive concentric ring patterns created by ancient cyanobacteria',
+        type: 'geology'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Geological trail through the open-air fossil park',
+        caption: 'Walking path traversing the ancient Precambrian sedimentary rock terrace',
+        type: 'nature'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
+        fallback: '../../../public/assets/images/destinations/salkhan-fossils.webp',
+        alt: 'Prehistoric sandstone outcrops and scrub hills of Salkhan',
+        caption: 'Rugged terrain preserving Earth’s earliest macroscopic life evidence',
+        type: 'landscape'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85',
+        fallback: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&w=1600&q=85',
+        alt: 'Golden hour sunset casting warm shadows on ancient fossil beds',
+        caption: 'Sunset illuminating rock surfaces that formed before complex life existed',
+        type: 'sunset'
+      }
+    ],
+
+    stories: [
+      {
+        id: 'primordial-life',
+        title: 'Before the Dinosaurs: Life 1.4 Billion Years Ago',
+        subtitle: 'How microbial mats shaped the oxygen of our planet',
+        tag: 'Precambrian Science',
+        readTime: '4 min read',
+        quote: 'These fossilized rings are tangible relics from the era when single-celled life was inventing the atmosphere we breathe today.',
+        content: [
+          'Spread across 25 hectares near the Robertsganj plateau, the stromatolites of Salkhan were formed during the Mesoproterozoic era, approximately 1,400 million years ago.',
+          'Colonies of photosynthetic cyanobacteria trapped layers of fine sediment in shallow warm marine bays, gradually mineralizing into tree-ring-like concentric cylindrical stone pillars.',
+          'Geologists worldwide consider Salkhan to rival or exceed the famous fossil parks of America and Australia in density and preservation state.'
+        ]
+      }
+    ],
+
+    creators: [
+      {
+        id: 'vindhya-heritage-walks',
+        name: 'Vindhya Heritage Explorer',
+        handle: '@vindhyaheritage',
+        hometown: 'Robertsganj, Sonbhadra',
+        avatar: '../../../public/assets/images/creators/vindhya-heritage.webp',
+        isVerified: true,
+        primaryFocus: 'Prehistoric Geology & Heritage Preservation',
+        bio: 'Preserving ancient oral histories, medieval fort architecture, and millennia-old rock shelters hidden across Sonbhadra’s plateau.',
+        profileUrl: '../index.html#creators',
+        social: {
+          instagram: 'https://instagram.com/[PLACEHOLDER]',
+          youtube: 'https://youtube.com/[PLACEHOLDER]'
+        },
+        recentPosts: [
+          {
+            title: 'Touching 1.4 Billion Years of History',
+            thumbnail: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=600&q=75',
+            type: 'Geology Vlog',
+            views: '35.4K views'
+          }
+        ]
+      }
+    ],
+
+    quickFacts: {
+      bestSeason: 'October to March (Pleasant weather for open-rock walking)',
+      timings: '08:00 AM – 05:30 PM daily',
+      entryFee: 'Nominal Forest Dept ticket (₹10 – ₹20 per visitor)',
+      difficulty: 'Easy (Gradual stone steps and flat earthen pathways)',
+      nearestRailway: 'Robertsganj Railway Station (RBGJ) — 16 km',
+      nearestAirport: 'Varanasi International Airport (LBS) — ~115 km',
+      howToReach: 'Located just 1.5 km off State Highway 5A near Salkhan village, easily accessible by auto or taxi from Robertsganj.'
+    },
+
+    mapDetails: {
+      lat: 24.5833,
+      lng: 83.0833,
+      mapQuery: 'Salkhan Fossil Park, Sonbhadra, Uttar Pradesh',
+      terrain: 'Sandstone ridges, dry deciduous scrub forest, exposed rock terraces.',
+      landmarks: [
+        'Veer Lorik Stone (14 km)',
+        'Vijaygarh Fort (18 km)',
+        'Robertsganj Market (16 km)'
+      ],
+      safetyNotes: 'Rocks can become very hot during midday summer sun. Carry a hat, sunglasses, and water.'
+    },
+
+    communityGuidelines: {
+      etiquette: [
+        'Do not chip, hammer, or take pieces of fossil stone as souvenirs.',
+        'Follow designated walkways and avoid scraping rock surfaces with hard objects.',
+        'Respect this rare global geological treasure.'
+      ],
+      ecoRules: [
+        'Strictly zero plastic littering in the reserve.',
+        'Keep noise levels low to respect local flora and birdlife.'
+      ],
+      safetyWarnings: [
+        'Watch your footing over unpaved rock fissures.',
+        'Do not climb unstable boulder stacks.'
+      ]
+    },
+
+    relatedSlugs: ['vijaygarh-fort', 'agori-fort', 'lakhaniya-dari']
   }
 };

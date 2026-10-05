@@ -4,8 +4,8 @@
   "description": "The definitive digital platform for discovering Sonbhadra through local eyes",
   "main": "src/scripts/main.js",
   "scripts": {
-    "dev": "npx serve -s . -l 3000",
-    "start": "npx serve -s . -l 3000"
+    "dev": "npx serve . -l 3000",
+    "start": "npx serve . -l 3000"
   },
   "keywords": [
     "sonbhadra",

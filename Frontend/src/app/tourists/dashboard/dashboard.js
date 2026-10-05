@@ -53,6 +53,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   initRecommendations();
   loadBookings();
   loadWishlist();
+
+  // 4. Live sync for wishlist changes across tabs and pages
+  window.addEventListener('sc:wishlist-updated', () => {
+    loadWishlist();
+  });
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'sc_wishlist') {
+      loadWishlist();
+    }
+  });
 });
 
 /* --------------------------------------------------------------------------
@@ -679,6 +689,10 @@ function renderWishlistGrid(items, container) {
       const res = await TouristService.removeFromWishlist(id);
       if (res.ok) {
         showToast('Removed from wishlist', 'info');
+        // Notify other pages and destination cards
+        window.dispatchEvent(new CustomEvent('sc:wishlist-updated', {
+          detail: { id, isAdded: false }
+        }));
         loadWishlist();
       } else {
         btn.disabled = false;
